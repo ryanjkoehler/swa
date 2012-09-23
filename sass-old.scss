@@ -1,0 +1,643 @@
+$default-border-radius: 1em !default;
+
+
+// To use the clearfix, put @extend clearfix in your declaration
+// This produces less code than using a @mixin
+
+
+/*
+.clearfix {
+    zoom:1;
+    &:before, &:after {
+        content: "\0020";
+        display: block;
+        height: 0;
+        overflow: hidden;
+    }
+    &:after {
+        clear: both;
+    }
+}
+
+*/
+
+@mixin clearfix {
+	&:before, &:after {
+		content: ""
+		display: table
+	}
+	&:after {
+	  clear: both
+	  }
+	zoom: 1
+}
+
+
+
+
+@mixin sans-serif {
+	font-family: 'myriad-pro', Helvetica, sans-serif;
+}
+
+@mixin sans-serif-condensed {
+	font-family: 'myriad-pro-condensed', 'Arial Narrow', Helvetica, sans-serif;
+}
+
+@mixin serif {
+	font-family: Georgia, Times, serif;
+}
+
+
+
+@mixin box-sizing($type: border-box) {
+	-webkit-box-sizing: $type;
+	   -moz-box-sizing: $type;
+	        box-sizing: $type;
+}
+
+@mixin box-shadow($x: 1px, $y: 2px, $blur: 4px, $color: rgba(0,0,0,.2), $inset:"") {
+	-webkit-box-shadow: #{$inset} $y $x $blur $color;
+	-moz-box-shadow: 	#{$inset} $y $x $blur $color;
+	box-shadow: 		#{$inset} $y $x $blur $color;
+}
+
+@mixin box-shadow-inset($x: 0px, $y: 0px, $blur: 8px, $color: rgba(0,0,0,.2), $inset:"inset") {
+	@include box-shadow($x, $y, $blur, $color, $inset);
+}
+
+@mixin border-radius($radius: $default-border-radius) {
+	-webkit-border-radius: $radius;
+	-moz-border-radius: $radius;
+	border-radius: $radius;
+}
+
+@mixin border-top-left-radius($radius: $default-border-radius) {
+	-webkit-border-top-left-radius: $radius;
+	-moz-border-radius-topleft: $radius;
+	border-top-left-radius: $radius;
+}
+
+@mixin border-top-right-radius($radius: $default-border-radius) {
+	-webkit-border-top-right-radius: $radius;
+	-moz-border-radius-topright: $radius;
+	border-top-right-radius: $radius;
+}
+
+@mixin border-bottom-left-radius($radius: $default-border-radius) {
+	-webkit-border-bottom-left-radius: $radius;
+	-moz-border-radius-bottomleft: $radius;
+	border-bottom-left-radius: $radius;
+}
+
+@mixin border-bottom-right-radius($radius: $default-border-radius) {
+	-webkit-border-bottom-right-radius: $radius;
+	-moz-border-radius-bottomright: $radius;
+	border-bottom-right-radius: $radius;
+}
+
+
+.intro {
+	font-family: Georgia;
+	font-size: 1.4em;
+	color: #888;
+
+	.firstphrase {
+		font-size: 1.8em;
+		line-height: 0;
+		color: hsl(200, 80%, 30%);
+	}
+}
+
+.display a {
+	text-decoration: none;
+}
+
+/* Thumbnail toggler */
+ul.display {
+	/*float: left;*/
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+
+	li {
+		float: left;
+		width: 100%;
+
+		&:nth-of-type(even) {
+			/*background: #ddd;*/
+		}
+
+		&:hover {
+		    -webkit-transition-duration: 0.2s;
+		    -moz-transition-duration: 0.2s;
+		    transition-duration: 0.2s;
+		}
+
+		.content_block a img{
+			padding: 5px;
+			/*border: 2px solid #ccc;*/
+			background: #fff;
+			margin: 0 15px 0 0;
+			float: left;
+		}
+	}
+}
+
+
+ul.list_view {
+	
+	li {
+
+		&.active h2 a {
+			color: #0071b7;
+		}
+
+		.content_block {
+			/*padding-left: 1em;*/
+
+			a img{
+				display: none;
+			}
+		}	
+	}
+
+	.chartitem {
+		padding: .5em 0;
+		border-top: 1px solid #ddd;
+	}
+}
+
+ul.thumb_view {
+	* {
+		{
+			@include box-sizing;
+		}
+	}
+
+	li{
+		position: relative;
+		width: 200px;
+		margin-right: 13px;
+		margin-bottom: 13px;
+		height: 140px;
+		overflow: hidden;
+
+		@include box-shadow(1px, 2px, 4px, 0px, #ccc);
+
+		border-width: 2px;
+		border-style: solid;
+		border-color: #069;
+
+		&:hover { 
+			/*border-color: #FF5E99;*/
+			border-color: #0071b7;
+			/* border-color: hsla(); */
+			-moz-box-shadow:    none;
+			-webkit-box-shadow: none;
+			box-shadow:         none;
+		}
+
+		&:nth-child(3n) {
+			/*margin-right: 0;*/
+		}
+
+		p{
+			display: none;
+		}
+
+		img {
+			/*width: 250px;*/
+			width: 100%;
+		}
+
+		h2 {
+
+			cursor: pointer;
+
+			display: block;
+			position: absolute;
+			bottom: 0;
+			width: 100%;
+			background: #444;
+			background: rgba(0,0,0,.8);
+			/*background: hsla(200, 100%, 20%, .8);*/
+			text-shadow: 1px 1px 1px #000;
+			padding: 20px 10px;
+			margin: 0;
+			color: #fff;
+			font-size: 14px;
+			line-height: 1;
+
+			a {
+				color: #fff;
+			}
+		}
+
+		&.active h2 {
+			background: hsla(200, 100%, 30%, 1);
+			-webkit-transition-duration: 0.6s;
+			-moz-transition-duration: 0.6s;
+			transition-duration: 0.6s;
+		}
+
+		.content_block a img {
+			margin: 0 0 10px;
+		}
+
+	}
+}
+
+
+/* View switcher button */
+
+a.switch_thumb {
+
+	width: 122px;
+	height: 26px;
+	line-height: 26px;
+	padding: 0;
+	margin: 10px 0;
+	display: block;
+	background: url('http://www.stateofworkingamerica.org/wp-content/themes/swa-clone/img/switch1.gif') no-repeat;
+	outline: none;
+	text-indent: -9999px;
+
+	float: right;
+	
+}
+a:hover.switch_thumb {
+	filter:alpha(opacity=75);
+	opacity:.75;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=75)";
+}
+a.swap { background-position: left bottom; }
+
+
+
+h2.charttitle {
+	margin: .5em 0;
+	padding: 0;
+	/*margin-bottom: 1em;*/
+	font-size: 16px;
+}
+
+h2.charttitle a {
+	color: #444;
+}
+
+
+h2.sectiontitle {
+	font-weight: 600;
+	font-weight: 300;
+	text-transform: uppercase;
+	letter-spacing: .2em;
+	color: #0071b7;
+}
+
+a .daterange {
+/*				color: yellow;*/
+	opacity: .6;
+	font-weight: normal;
+}
+
+.button-link {
+	font-family: Georgia;
+	font-style: italic;
+
+    padding: .5em .7em;
+    background: #4479BA;
+    color: #FFF;
+
+    @include border-radius(.25em);
+
+    border: solid 1px #20538D;
+
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+
+    -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+
+    -webkit-transition-duration: 0.6s;
+    -moz-transition-duration: 0.6s;
+    transition-duration: 0.6s;
+
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
+
+    span {
+    	font-family: 'myriad-pro';
+    	font-style: normal;
+    	text-transform: uppercase;
+    	font-weight: bold;
+    	color: hsl(200, 90%, 85%);
+    }
+
+    &:hover {
+        background: #356094;
+        border: solid 1px #2A4E77;
+        text-decoration: none;
+        color: #fff;
+    }
+
+    &:visited {
+    	color: #fff;
+    }
+
+    &:active {
+        -webkit-box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.6);
+        -moz-box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.6);
+        box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.6);
+
+        background: #2E5481;
+        border: solid 1px #203E5F;
+        color: #fff;
+    }
+}
+
+.middlebutton {
+	@include border-radius(0);
+}
+
+.leftbutton {
+	@include border-top-right-radius (0);
+	@include border-bottom-right-radius (0);
+}
+.rightbutton {
+	@include border-top-left-radius (0);
+	@include border-bottom-left-radius (0);
+}
+
+.buttoncontainer {
+	margin: 1em 0;
+	font-size: 1.4em;
+	text-align: right;
+}
+
+a.button {
+    padding: .5em .7em;
+    background: #666;
+
+	color: #fff;
+}
+
+.subsection-toc {
+	a.active {
+		font-weight: bold;
+		color: black;
+	}
+}
+
+
+
+.inset-box {
+	margin: 2em 0;
+	padding: 1em;
+	background: #ccc;
+
+	@include box-shadow(0, 0, 4px, rgba(0, 0, 0, 0.4), inset);
+
+}
+
+.bigsearchfield {
+	/*background: #efefef;*/
+	padding: .3em .4em;
+	font-family: Georgia;
+	font-size: 2em;
+	width: 300px;
+}
+
+.clearFieldBlurred { 
+	background: #eee;
+	color: #aaa; 
+	font-style: italic; 
+	/*-webkit-transition-duration: 0.2s;*/
+	/*-moz-transition-duration: 0.2s;*/
+	/*transition-duration: 0.2s;*/
+
+}
+.clearFieldActive { 
+	color: #666; 
+	/*-webkit-transition-duration: 0.2s;*/
+	/*-moz-transition-duration: 0.2s;*/
+	/*transition-duration: 0.2s;*/
+
+}
+
+
+
+
+
+
+/****************************************************
+FOR FACT SHEETS
+****************************************************/
+
+$numberBackground1: rgb(240, 60, 115); // red;
+$numberBackground2: rgb(140, 190, 17); // green;
+$numberBackground3: rgb(20, 100, 174); // blue;
+$numberBackground4: rgb(255, 175, 9); // orange;
+
+
+@mixin radial-gradient($startcolor: #fff, $endcolor: ) {
+
+	background: $startcolor;
+	background: -moz-radial-gradient(center, ellipse cover,  $startcolor 0%, $endcolor 100%);
+	background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,$startcolor), color-stop(100%,$endcolor));
+	background: -webkit-radial-gradient(center, ellipse cover,  $startcolor 0%,$endcolor 100%);
+	background: -o-radial-gradient(center, ellipse cover,  $startcolor 0%,$endcolor 100%);
+	background: -ms-radial-gradient(center, ellipse cover,  $startcolor 0%,$endcolor 100%);
+	background: radial-gradient(ellipse at center,  $startcolor 0%,$endcolor 100%);
+}
+
+
+
+
+.fact-sheet {
+	
+	* {
+		@include box-sizing;
+	}
+
+	header.fact-header {
+		background: rgba(255, 255, 255, 0) url('http://www.epi.org/files/2012/facthead-african-american.png') no-repeat center;
+		height: 200px;
+		width: 100%;
+		padding: 0;
+		@include box-shadow-inset(0,0,12px,rgba(0,0,0,.5), inset);
+
+		h1 {
+			@include sans-serif-condensed;
+			font-size: 4.3em;
+			width: 50%;
+			background: rgba(0, 0, 0, .5);
+			color: #fff;
+			padding: 20px;
+			line-height: .85;
+			height: 200px;
+		}
+	}
+
+	hr {
+		border: none;
+		height: 30px;
+		background: rgba(255, 255, 255, 0) url('http://www.epi.org/files/2012/factsheet_hr.gif.x16') no-repeat center;
+	}
+
+	p {
+		@include sans-serif;
+		// text-align: center;
+		font-size: 1.1em;
+		font-weight: 600;
+		color: #666;
+	}
+
+	ul {
+		padding: 0;
+		margin: 0;
+		list-style-type: none !important;
+		list-style-image: none !important;
+
+		li {
+			// @extend .clearfix;
+			// @include clearfix;
+			// margin-left: 100px;
+			clear: both;
+			padding-left: 0px;
+			padding: 1em 0;
+			
+		}
+
+		.calloutnumber {
+
+			box-sizing: border-box;
+			display: block;
+			float: left;
+			clear: both;
+			line-height: .9;
+			
+			width: 100px;
+			/*height: 40px;*/
+
+
+			/*border: 3px solid rgba(255,255,255,.2);*/
+
+			margin: 0;
+			// margin-left: -100px;
+			margin-right: 16px;
+			padding: .5em .2em;
+			
+			background-color: $numberBackground1;
+			@include radial-gradient($numberBackground1, saturate(darken($numberBackground1, 13%), 20%));
+
+			color: #fff;
+			text-align: center;
+			font-weight: 700;
+			@include sans-serif-condensed;
+			font-size: 24px;
+			
+			text-shadow: 2px 2px 5px #000;
+			@include box-shadow-inset;
+			border-radius: 8px;
+
+			.light {
+				font-weight: 300;
+			}
+		}
+
+		.calloutnumber-active {
+
+		}
+
+		.callout-active {
+			color: red;
+			background: yellow;
+		}
+
+		&:nth-of-type(2n) .calloutnumber {
+			background-color: $numberBackground2;
+			@include radial-gradient($numberBackground2, saturate(darken($numberBackground2, 13%), 20%));
+		}
+
+		&:nth-of-type(3n) .calloutnumber {
+			background-color: $numberBackground3;
+			@include radial-gradient($numberBackground3, saturate(darken($numberBackground3, 13%), 20%));
+		}
+		&:nth-of-type(4n) .calloutnumber {
+			background-color: $numberBackground4;
+			@include radial-gradient($numberBackground4, saturate(darken($numberBackground4, 13%), 20%));
+		}
+	}
+
+	h2 {
+		font-size: 2em;
+		letter-spacing: normal;
+		@include sans-serif-condensed;
+		font-weight: 800;
+		padding: .25em .5em;
+		background: #eee;
+		border: 1px solid #ccc;
+		border-left: none;
+		border-right: none;
+
+		em {
+			font-style: normal;
+			color: #888;
+			font-weight: 300;
+		}
+	}
+
+	.box {
+		background: #eee;
+		border: 1px solid #ccc;
+		@include box-shadow-inset;
+		padding: 1em 2em;
+		padding-left: 200px;
+		margin: 1em 0;
+
+		p {
+			font-weight: normal;
+		}
+
+		h3 {
+			float: left;
+			width: 200px;
+			margin-left: -200px;
+			padding: 0 20px;
+			font-size: 1.5em;
+			color: #888;
+			font-weight: 300;
+			font-style: italic;
+			line-height: 1;
+			text-align: right;
+
+			strong {
+				@include sans-serif-condensed;
+				font-weight: 800;
+				font-weight: 500;
+				font-style: normal;
+				color: #333;
+				text-transform: uppercase;
+				font-size: 2em;
+			}
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

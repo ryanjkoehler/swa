@@ -1,0 +1,165 @@
+#nav,
+#search,
+#aside,
+#EPI-info,
+#share-page,
+#utility-nav,
+#for-the-media,
+.utilities,
+.feature-nav,
+.pagination,
+.next-page,
+.callout-nav,
+#explore,
+.footer-pdf {
+	display: none;
+}
+
+a:link,
+a:visited,
+a:hover,
+a:focus,
+a:active {
+	text-decoration: underline;
+}
+
+body,
+.home {
+	background: #fff;
+	color: #333;
+}
+#container {
+	background: #fff;
+	color: inherit;
+	padding: 0;
+	position: static;
+	width: 100%;
+}
+#header,
+.home #header {
+	background: transparent;
+	color: #333;
+	height: auto;
+	margin-left: 0;
+	position: static;
+	padding: 0 0 2em;
+}
+#identity {
+	height: auto;
+	margin: 0;
+	width: auto;
+}
+#identity .visuallyhidden {
+	position: static !important;
+	clip: auto;
+}
+#identity a:link,
+#identity a:visited {
+	color: #333;
+	font-size: 1.5em;
+	height: auto;
+	text-decoration: none;
+	width: auto;
+}
+#main,
+.home #main {
+	float: none;
+	margin: 0;
+	position: static;
+	width: auto;
+}
+.home #main {
+	padding-bottom: 2em;
+}
+.home #intro {
+	background: #fff;
+	float: none;
+	height: auto;
+	min-height: 0;
+	padding-right: 0;
+	width: auto;
+}
+#intro-quote {
+	float: none;
+	margin-left: 0;
+	width: auto;
+}
+.sp-header {
+	background: #fff;
+	-moz-border-radius: 0;
+	-webkit-border-radius: 0;
+	border-radius: 0;
+	color: #000;
+	float: none;
+	padding: 0;
+}
+.mini-nav {
+	float: none;
+	width: 100%;
+}
+
+.chart-list li li img,
+.detail img {
+	visibility: visible !important;
+}
+
+#footer {
+	background: #fff;
+	border-top: 1px solid #666;
+	color: #333;
+	margin: 2.2em 0 1em;
+	padding-bottom: 0;
+	padding-top: 1em;
+	width: auto;
+}
+#footer #identity-copyright {
+	background: transparent;
+	margin: 0;
+	padding: 0;
+}
+#media-info {
+	margin: 0;
+	padding-bottom: 1em;
+	width: auto;
+}
+#media-info .vcard {
+	border-left: 0;
+	color: #333;
+	float: none;
+	padding-left: 0;
+	width: auto;
+}
+#media-info a {
+	color: #333;
+}
+
+.js #slideshow {
+	background: #fff;
+	border: 0;
+	-moz-border-radius: 0;
+	-webkit-border-radius: 0;
+	border-radius: 0;
+	-moz-box-shadow: none;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	height:auto;
+	position: relative;
+	width: auto;
+}
+.js #slides {
+	height: auto;
+	overflow: visible;
+	position: static;
+	width: auto;
+}
+.js .slide {
+	background: #fff;
+	height: auto;
+	padding: 2em 0;
+	position: static !important;
+	width: auto;
+}
+.js #slides .slide-button {
+	display: none;
+}
+

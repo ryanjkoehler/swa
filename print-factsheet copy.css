@@ -1,0 +1,230 @@
+/* @import url("fontface-myriad/myriad.css");*/
+
+/*
+
+@page {
+    @footnotes {
+	border-top: 1px solid #888;
+	padding: .5em 0;
+	margin-top: .8em;
+    }
+}
+*/
+
+html, body { height: inherit; }
+
+/*body { font-family: Georgia, serif !important; }*/
+
+
+@media screen {
+	
+	body {
+		width: 7in;
+		margin: 0 auto 2em;
+	}
+	
+	.footer { margin-top: 1em; }
+	
+	.admin-only { display: block !important; }
+	
+	.admin-only {
+	background: #ff9;
+	border: 1px solid #ccc;
+	padding: .5em;
+	font: .9em Helvetica;
+	overflow: auto;
+	clear: both;
+/*	display: none;*/
+	}
+	
+}
+
+
+/****************************************************
+	Print/PDF template
+****************************************************/
+
+@page {
+	size: 8.5in 11.0in;
+	size: US-Letter;
+	margin: 1.905cm 1.905cm 2cm;
+	margin: 1.905cm 1.905cm 1.8cm;
+	padding-bottom: .25cm;
+	/* columns: 2;*/
+	/* column-gap: 1.5em;*/
+
+ /*font: 16pt/1.5 "Crimson Text", serif;*/
+
+	@bottom-right {
+		content: "Page " counter(page);
+		border-top: 1px solid #888;			
+		padding-top: 1em;
+		vertical-align: top;
+		text-transform:uppercase;
+		font-family: "myriad-pro", Trebuchet, sans-serif;
+		font-size: 8pt;
+		letter-spacing: .1em;
+	}
+
+	@bottom-left {
+		/*content: "Economic Policy Institute";*/
+	  	/*content: "www.epi.org";*/
+
+		content: flow(footerleft);
+		border-top: 1px solid #888;			
+		padding-top: 1em;
+		vertical-align: top;
+		text-transform:uppercase;
+		font-family: "myriad-pro", Trebuchet, sans-serif;
+		font-size: 8pt;
+		letter-spacing: .1em;
+	}
+
+	@bottom {
+		border-top: 1px solid #888;			
+		padding-top: 1em;
+		vertical-align: top;
+		text-transform:uppercase;
+		font-family: "myriad-pro", Trebuchet, sans-serif;
+		font-size: 8pt;
+		letter-spacing: .1em;	
+	}
+
+
+	@top {
+		content: "";
+		border-bottom: 1px solid #888;			
+		margin-bottom: 1em;
+	}
+
+
+
+}
+
+
+
+
+
+@page:first { 
+	/*margin-top: 1.8cm;*/
+   
+	@top { content: normal }
+
+
+
+/* Use this if we are using a SWA or other header */
+
+/*
+	margin-top: 3cm;
+	@top {
+		border: 0px;
+		padding: 0;
+		margin-top: -3cm;
+		margin-left: -1.91cm;
+		content: flow(topbanner);
+	}
+*/
+
+/* End of SWA Banner */
+	
+	
+   @bottom-left { content: none }
+   @bottom-right { content: none }
+
+/*	@bottom-center { content: 'Economic Policy Institute'; }*/
+	@bottom { 
+			/*content: 'Economic Policy Institute | 1333 H Street, NW | Suite 300, East Tower | Washington, DC 20005 | 202.775.8810 | www.epi.org'; 
+				letter-spacing: 0em;
+				text-align: center;
+				font-size: 8pt;*/
+			/*margin-top: -2em;*/
+			content: flow(footer);
+				
+				
+	}
+}
+
+
+
+.footer {
+    flow: static(footer);
+	text-transform:uppercase;
+	font-family: "myriad-pro", Trebuchet, sans-serif;
+/*	letter-spacing: .05em;*/
+/*	letter-spacing: .1em;*/
+	letter-spacing: .07em;
+	font-size: 8pt;
+	font-size: .7em;
+	
+	text-align:center;
+
+	/*border: 1px solid red;*/
+
+	/*margin-top: -2em;*/
+
+}
+
+.footerleft-content {
+    flow: static(footerleft);
+	text-transform:uppercase;
+	font-family: "myriad-pro", Trebuchet, sans-serif;
+/*	letter-spacing: .05em;*/
+	letter-spacing: .1em;
+	font-size: 8pt;
+	/*text-align:center;*/
+
+}
+
+
+
+
+
+
+#pdf-topbanner {
+flow:static(topbanner);
+/*background-color: blue;*/
+}
+
+
+
+
+.figure.float-none { float: none; }
+.figure.float-left { float: left; }
+.figure.float-right { float: right; }
+.figure.float-prince-column-top { float: prince-column-top; }
+.figure.float-prince-column-bottom { float: prince-column-bottom; }
+.figure.float-prince-column-top-if-necessary { float: prince-column-top-if-necessary; }
+.figure.float-prince-column-bottom-if-necessary { float: prince-column-bottom-if-necessary; }
+.figure.float-top, .float-top { float: top; }
+.figure.float-bottom, .float-bottom { float: bottom; }
+.figure.float-prince-top-next { float: prince-top-next; }
+.figure.float-prince-bottom-next { float: prince-bottom-next; }
+.figure.float-prince-top-if-necessary { float: prince-top-if-necessary; }
+.figure.float-prince-bottom-if-necessary { float: prince-bottom-if-necessary; }
+
+
+
+
+/***************************************************
+Uncomment this if you want to make the body of the paper two columns.
+There are some limitations: Figures must be floated to the top or bottom of the page.
+*****************************************************/
+
+.entry-content {
+	
+	
+
+	columns: 1;
+	column-gap: 1.5em;
+	column-rule-width: .05em;
+	column-rule-style: solid;
+	column-rule-color: #444;
+	
+	text-align: justify;
+	
+	
+	prince-hyphenate-lines: 2;
+	prince-hyphenate-before: 3;
+	prince-hyphenate-after: 3;
+	
+}

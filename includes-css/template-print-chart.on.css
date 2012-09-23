@@ -1,0 +1,565 @@
+
+/* >> The Magnificent CLEARFIX: Updated to prevent margin-collapsing on child elements << j.mp/bestclearfix */
+.clearfix:before, .clearfix:after { content: "\0020"; display: block; height: 0; visibility: hidden; }
+.clearfix:after { clear: both; }
+/* fix clearfix: blueprintcss.lighthouseapp.com/projects/15318/tickets/5-extra-margin-padding-bottom-of-page */
+.clearfix { zoom: 1; }
+
+.table-page-break {
+	display: none;
+}
+
+.force-unbold {
+	font-weight: normal;
+}
+
+
+
+.tsymbol-percent {
+	font-family: "myriad-pro-condensed";
+}
+.tsymbol-negative {
+}
+.tsymbol-usd {
+}
+
+/*.tsymbol-percent {
+	display: inline;
+	float: right;
+	width: 0px;
+}
+.tsymbol-negative {
+	display: inline;
+	margin-left: -999px;
+	width: 0px;
+}
+.tsymbol-usd {
+	display: inline;
+	margin-left: -999px;
+	width: 0px;
+}
+*/
+
+
+
+@media print {
+	#isPRINTzzzzzzzzzzz {
+		display: block !important;
+		width: 200px;
+		height: 200px;
+		background: red;
+	}
+}
+	
+@media screen {
+	body {
+	/*width: 4.75in;*/
+	/*margin: 0 auto;*/
+	}
+	
+	#isPRINT {
+		display: none;
+	}
+	
+	.epitip .asterisk {
+		color: #069;
+	/*	font-size: 2em;*/
+	/*	line-height: 0;*/
+
+	/*	display: block;*/
+	/*	margin: -1em 0 0 -2em; */
+		/* These need to equal the padding in .epitip */
+	/*	background: #DDD;*/
+	/*	padding: .5em 0 0 .5em;*/
+	/*	width: 3em;*/
+	/*	border-radius: 0 0 1em;*/
+	}
+
+	.epitip .asterisk {
+	/*	display: none;*/
+	}
+
+
+	.asterisk-ref {
+		cursor: pointer;
+/*		color: #069;*/
+	}
+
+
+	.nnnnnote-asterisk {
+		padding-left: 16pt;
+	}
+
+	.nnnnasterisk {
+	/*	background: yellow;*/
+		width: 16pt;
+		margin-left: -16pt;
+		display: inline-block;
+	}
+
+	
+	
+}
+
+.valign-middle {
+	vertical-align: middle;
+}
+
+.epitip {
+	display: none;
+	position: absolute;
+	background: #fff;
+	border: 4px solid #ccc;
+	padding: 1em 2em;
+	width: 200px;
+	
+	font-family: 'myriad-pro';
+	text-align: left;
+	color: #444;
+	font-size: 9pt;
+	text-decoration: none;
+	font-style: normal;
+	font-weight: normal;
+}
+
+
+
+/* For SVGs */
+
+svg {
+	margin-top: .75em;
+	width: 100%;
+}
+
+.chapter-title {
+	page-break-before: always;
+	page-break-after: always;
+	text-transform:uppercase;
+	page: chapter_titles;
+/*	color: #fff;*/
+	
+	font-size: 70pt;
+	
+/*	background: #666;*/
+/*	border-radius: 1in;*/
+	
+	text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+	             0px 8px 13px rgba(0,0,0,0.1),
+	             0px 18px 23px rgba(0,0,0,0.1);
+}
+
+/* Enable line breaks after en dashes if necessary */
+/* http://www.princexml.com/bb/viewtopic.php?f=3&t=15941 */
+
+table {
+	prince-text-replace: '–' '–\200B';
+}
+
+
+
+figure {
+/*	width: 5in;*/
+	/*width: 4.75in;*/
+	page-break-before: always;
+}
+
+figure.chart-landscape {
+	width: 7in;
+}
+
+figure.chart-landscape .source-and-notes {
+}
+
+.two-columns {
+	columns: 2;
+	column-gap: 2em;
+	column-fill: balance; //auto
+}
+
+figure.chart-too-tall table {
+	font-size: 7pt;
+}
+
+figure.chart-too-tall .source-and-notes {
+	font-size: 7pt;
+}
+
+figure.chart-too-tall table td {
+	margin-top: .1em;
+	margin-bottom: .1em;
+}
+
+
+
+.source-and-notes .note-asterisk {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+/* This didn't seem to work with columns/colgroups? */
+.nowrap,
+.nowrap td, 
+.nowrap th {
+	white-space: nowrap !important;
+}
+
+.source-and-notes .note-asterisk:nth-of-type(n+1) {
+	
+}
+
+
+figure.chart-narrow table {
+	width: 3in;
+}
+
+figure.chart-two-column .chart-body {
+	columns: 2;
+	column-gap: 2em;
+	column-fill: balance; //auto
+}
+
+.chart-wide table {
+	font-family: 'myriad-pro-semi-condensed';	
+}
+
+
+/****************************************************
+Add grey lines/grey bars above and below the charts -- 2012-07-23 17:52:39
+****************************************************/
+
+figure {
+/*	border: 2pt solid #ccc;*/
+/*	border-left: 0;*/
+/*	border-right: 0;*/
+}
+
+
+
+body {
+/*	width: 5in;*/
+}
+
+figure {
+	margin: 0;
+	padding: 0;
+}
+
+.source-and-notes {
+	font: 300 8pt 'myriad-pro';
+	margin: .5em 0;
+	hyphens: manual; // none
+}
+
+
+.source-and-notes .chart-notes p.note-asterisk:last-child {
+	margin-bottom: .5em;
+}
+
+
+
+
+h4 {
+	font-size: 10pt;
+	font-weight: 600;
+}
+
+h4 span.figure-label {
+	font-weight: 900;
+	margin-right: .25em;
+}
+
+/*
+font-weight: 300; // Light
+font-weight: 400; // Regular
+font-weight: 600; // Semibold
+font-weight: 700; // Bold
+font-weight: 900; // Black
+*/
+
+table {
+	font-size: 8pt;
+	font-family: 'myriad-pro';
+	font-weight: 300;
+	border-collapse: collapse;
+/*	border-collapse: separate; //????????????*/
+	width: 100%;
+	margin-top: 1.2em;
+	margin-bottom: 1em;
+	margin-right: auto;
+	margin-left: auto;
+	
+/*	-webkit-hyphens: auto;*/
+/*	-moz-hyphens: auto;*/
+/*	hyphens: auto;*/
+	
+}
+
+
+tr.row-level2 th:first-child {
+	font-weight: 400;
+	padding-left: 1.5em;
+}
+
+tr.row-level3 th {
+	font-weight: 300;
+	padding-left: 2.5em;
+}
+
+tr.table-total.row-level2 th:first-child {
+	font-weight: 600;
+}
+
+th.row-level2b {
+	font-weight: 400;
+}
+
+
+
+.table-cell-hide {
+/*	display:none;*/
+	visibility: hidden !important;
+/*	background-color: #fff !important;*/
+/*	border: 0 !important;*/
+/*	border: white;*/
+}
+
+.table-division-left {
+	border-left: .5em solid white;
+/*	background: yellow;*/
+}
+
+.table-pseudo-header {
+	border-top: .6em solid white;
+	
+	/* Larry wants lines removed: */
+	border-bottom: 1px solid #ccc;
+}
+
+.table-pseudo-header th {
+	font-style: italic;
+	font-weight: 700; /* Bold */ 
+}
+
+.table-pseudo-header th strong {
+	font-weight: 400; /* Normal */ 
+}
+
+.table-pseudo-header th[scope=col] {
+	font-style: normal;
+}
+
+.table-pseudo-header th:not([colspan]) {
+	/*font-style: normal;*/
+}
+
+tbody:first-of-type .table-pseudo-header {
+	border-top: none;
+}
+
+tbody:nth-of-type(n+2) tr:first-of-type td,
+tbody:nth-of-type(n+2) tr:first-of-type th {
+/*	border-top: 1em solid white;*/
+	padding-top: 1em;
+}
+
+.chart-too-tall tbody:nth-of-type(n+2) tr:first-of-type td,
+.chart-too-tall tbody:nth-of-type(n+2) tr:first-of-type th {
+	padding-top: .5em;
+}
+
+tbody:first-of-type tr:first-of-type td,
+tbody:first-of-type tr:first-of-type th {
+	
+	padding-top: .2em; /* needs to match default td/th padding. above nth-of-type rule should be enough but doesn't seem to work in princexml */
+	
+/*	border-bottom: none;*/
+/*	padding-top: inherit;*/
+}
+
+
+
+
+
+
+figure.table-text-only table td {
+	text-align: left;
+}
+
+figure.table-text-only table td,
+figure.table-text-only table th {
+/*	padding: .2em .5em;*/
+	padding: .6em 1em;
+}
+
+figure.table-text-only table tbody:first-of-type tr:first-of-type td,
+figure.table-text-only table tbody:first-of-type tr:first-of-type th {
+	padding-top: .6em;
+}
+
+figure.table-text-only table tbody th:first-child {
+/*	border-left: 0;*/
+}
+
+
+figure.table-text-only table tbody th,
+figure.table-text-only table tbody td {
+	border: 1px solid #ccc;
+	vertical-align:middle;
+}
+
+/* Make the bottom of text-only tables have a black border */
+
+figure.table-text-only table tbody:last-child tr:last-child td,
+figure.table-text-only table tbody:last-child tr:last-child th {
+	border-bottom-color: #000;
+}
+
+figure.table-text-only table tbody:last-child tr:nth-last-child(4) td[rowspan="4"],
+figure.table-text-only table tbody:last-child tr:nth-last-child(4) th[rowspan="4"] {
+	border-bottom-color: #000;
+}
+
+
+
+
+figure.table-text-only table tbody td:last-child {
+/*	border-right: 0;*/
+}
+
+figure.table-text-only table tbody tr:last-child td:last-child {
+/*	border-bottom: 0;*/
+}
+
+
+
+
+
+
+
+th {
+	font-weight: 600;
+	hyphens: manual; // none
+}
+
+td, th {
+	padding: .2em .5em;
+}
+
+thead th {
+	text-align: center;
+	vertical-align: bottom;
+}
+
+tbody th[rowspan] {
+	vertical-align: top;
+	background: #fff;
+}
+
+tbody th[scope=col],
+tbody th[scope=colgroup] {
+	text-align: center;
+	background: #fff;
+}
+
+tbody th:first-child[scope=colgroup] {
+	text-align: left;
+	/* Larry wants lines removed: */
+	border-bottom: 1px solid #ccc;
+}
+
+tbody th:not(:first-child)[colspan] {
+	/* Larry wants lines removed: */
+	border-bottom: 1px solid #ccc;
+}
+
+thead th:first-child, 
+tbody th[scope=row],
+tbody th[scope=rowgroup] {
+	text-align: left;
+}
+
+tbody th,
+tbody th[scope=col],
+tbody th[scope=colgroup] {
+	text-align:center;
+}
+
+
+
+/*thead th[scope=colgroup],*/
+thead th[colspan] {
+/*	font-weight: normal;*/
+/*	text-transform:uppercase;*/
+/*	font-size: .9em;*/
+/*	background: #eee;*/
+	
+	border-bottom: 1px solid #ccc;
+}
+
+thead {
+	border-bottom: .2em solid black;
+}
+
+/*tbody tr:last-child > td,*/
+/*tbody tr:last-child th*/
+/* Docraptor/PrinceXML bug? This border defies the col element border (.table-division-left) */
+tbody {
+	border-bottom: 1px solid #ccc;
+}
+tbody:last-child {
+	
+	/* Larry wants borders removed; */
+	border-bottom: 1px solid black;
+}
+
+tbody > tr {
+/*	border-bottom: 1px solid #ccc;*/
+}
+
+tbody > tr:nth-child(even) {
+/*	background: #ffeeef;*/
+
+/* IDEA: Implement striping in javascript, with logic to exclude headers and total rows, to avoid having to set them to white bg in css */
+
+/*	background: #eee;*/
+	
+/*	background: #FFEBF3;*/
+/*	background: #EDF2F7;*/
+/*	background: #EBF2FA;*/
+}
+
+tbody > tr:hover {
+	/*background: #eee;*/
+	color: #990000;
+}
+
+tbody tr.table-total th {
+	font-weight: bold;
+}
+
+tbody tr.table-total td {
+	font-weight: 600; //semibold
+}
+
+tbody td {
+	text-align: center;
+}
+
+
+
+
+/****************************************************
+Custom one-off rules
+****************************************************/
+
+.chart-28585 table thead th,
+.chart-28585 table tbody td,
+.chart-28585 table tbody th {
+	padding-top: 0.1em;
+	padding-bottom: 0.1em;
+}
+
+.chart-28585 .source-and-notes {
+	font-size: 6.5pt;
+}
+
