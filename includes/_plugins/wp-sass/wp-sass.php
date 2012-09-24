@@ -80,7 +80,8 @@ class wp_sass {
 	public function parse_stylesheet( $src, $handle ) {
 
 		// we only want to handle .less files
-		if ( ! preg_match( "/\.(?:sass|scss)(\.php)?$/", preg_replace( "/\?.*$/", "", $src ) ) )
+		// if ( ! preg_match( "/\.(?:sass|scss)(\.php)?$/", preg_replace( "/\?.*$/", "", $src ) ) )
+		if ( ! preg_match( "/\.(?:sass|scss)(\.php)?.css$/", preg_replace( "/\?.*$/", "", $src ) ) )
 			return $src;
 
 		// get file path from $src
