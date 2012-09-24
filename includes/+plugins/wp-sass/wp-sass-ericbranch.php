@@ -80,13 +80,18 @@ class wp_sass {
 	public function parse_stylesheet( $src, $handle ) {
 
 		// we only want to handle .less files
-		if ( ! preg_match( "/\.(?:sass|scss)(\.php)?$/", preg_replace( "/\?.*$/", "", $src ) ) )
+		// if ( ! preg_match( "/\.(?:sass|scss)(\.php)?$/", preg_replace( "/\?.*$/", "", $src ) ) )
+			// return $src;
+
+		// web559: Skip files that don't end in .sass.css, .scss.css, .scss.php.css, or .scss.php.css
+		if ( ! preg_match( "/\.(?:sass|scss)(\.php)?.css$/", preg_replace( "/\?.*$/", "", $src ) ) )
 			return $src;
 
 		// get file path from $src
 		if ( ! strstr( $src, '?' ) ) $src .= '?'; // prevent non-existent index warning when using list() & explode()
 
 		list( $sass_path, $query_string ) = explode( '?', str_replace( WP_CONTENT_URL, WP_CONTENT_DIR, $src ) );
+
 
 		// output css file name
 		$css_path = trailingslashit( $this->get_cache_dir() ) . "{$handle}.css";
