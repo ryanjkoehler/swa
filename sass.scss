@@ -1093,6 +1093,11 @@ ul.chapter-toc li {
 
 /* Royal slider */
 
+// Fix Safari invisible/flashing menu glitch caused by RoyalSlider JS
+#wpadminbar *, #nav {
+     -webkit-backface-visibility: hidden;   
+}
+
 #full-width-slider {
 	clear: both;
 	width: 900px;
