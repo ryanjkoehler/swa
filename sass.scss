@@ -1,14 +1,10 @@
 $default-border-radius: 1em !default;
 
-
-// To use the clearfix, put @extend clearfix in your declaration
-// This produces less code than using a @mixin
-
-
 // $darkblue: #036;
 $teal: #0074b9;
+$fileURL: "http://www.epi.org/files/2012/";
 
-
+// Usage: @include clearfix
 @mixin clearfix {
     zoom:1;
     &:before, &:after {
@@ -22,6 +18,7 @@ $teal: #0074b9;
     }
 }
 
+// Usage: @extend .clearfix
 .clearfix {
     zoom:1;
     &:before, &:after {
@@ -35,19 +32,8 @@ $teal: #0074b9;
     }
 }
 
-
-// @mixin clearfix {
-// 	&:before, &:after {
-// 		content: ""
-// 		display: table
-// 	}
-// 	&:after {
-// 	  clear: both
-// 	  }
-// 	zoom: 1
-// }
-
-
+// div { @extend .clearfix; } // compiles correctly
+// ul li { @extend .clearfix; } // compiles incorrectly as of 2012-09-25 09:14:52 due to PHPsass bug - https://github.com/richthegeek/phpsass/issues/45
 
 
 @mixin sans-serif {
@@ -62,6 +48,13 @@ $teal: #0074b9;
 	font-family: Georgia, Times, serif;
 }
 
+@mixin smallcaps {
+	@include sans-serif;
+	font-weight: 300;
+	text-transform: uppercase;
+	letter-spacing: .2em;
+	color: $teal;
+}
 
 @mixin transition-duration($duration: 0.6s) {
 	-webkit-transition-duration: $duration;
@@ -75,7 +68,6 @@ $teal: #0074b9;
 	-ms-user-select:$userselect;
 	user-select:$userselect;
 }
-
 
 
 @mixin box-sizing($type: border-box) {
@@ -106,7 +98,6 @@ $teal: #0074b9;
 	// box-shadow: 		$y $x $blur $color;
 
 }
-
 
 @mixin box-shadow-inset($x: 0px, $y: 0px, $blur: 8px, $color: rgba(0,0,0,.2), $inset:"inset") {
 	@include box-shadow($x, $y, $blur, $color, $inset);
@@ -349,11 +340,11 @@ a:hover.switch_thumb {
 a.swap { background-position: left bottom; }
 
 
+/* Taxonomy pages */
 
 h2.charttitle {
 	margin: .5em 0;
 	padding: 0;
-	/*margin-bottom: 1em;*/
 	font-size: 16px;
 }
 
@@ -361,44 +352,24 @@ h2.charttitle a {
 	color: #444;
 }
 
-
-@mixin smallcaps {
-	@include sans-serif;
-	font-weight: 300;
-	text-transform: uppercase;
-	letter-spacing: .2em;
-	color: $teal; // #0071b7;
-}
-
 .sectiontitle {
 	@include smallcaps;
 
-
-
-
 	.typestyle-of, .typestyle-and {
 		@include serif;
-		// font-family: Times, Baskerville;
 		margin-right: .15em;
-		// opacity: .7;
 		font-style: italic;
 		letter-spacing: 0;
 		text-transform: none;
 	}
-
-
-
 }
 
 
-
-
- /* Styles for Buttons */
+ /* Button links */
 
 .button-link {
 	font-family: Georgia;
 	font-style: italic;
-
     padding: .5em .7em;
     background: #4479BA;
     color: #FFF;
@@ -407,11 +378,8 @@ h2.charttitle a {
 
     border: solid 1px #20538D;
 
-    
  	@include text-shadow( 0 -1px 0 rgba(0, 0, 0, 0.4) );
-
  	@include box-shadow-bevel;
-
     @include transition-duration;
     @include user-select;
 
@@ -422,10 +390,6 @@ h2.charttitle a {
     }
 
     .ss-icon {
-    	// display: block;
-    	// float: right;
-    	// font-size: 1.2em;
-    	// margin-bottom: -.3em;
     	vertical-align: middle;
     	margin-right: .2em;
     	padding-right: .2em;
@@ -488,25 +452,17 @@ h2.charttitle a {
 a.button {
     padding: .5em .7em;
     background: #666;
-
 	color: #fff;
 }
 
 
-
-
-
-/****************************************************
-FOR FACT SHEETS
-****************************************************/
+/* Fact sheets */
 
 $numberBackground1: rgb(174, 25, 47); // red;
 $numberBackground2: rgb(0, 148, 206); // blue;
 $numberBackground3: rgb(152, 194, 45); // green;
 $numberBackground4: rgb(255, 156, 0); // orange;
 $numberBackground5: rgb(134, 31, 129); // purlpe;
-
-
 
 @mixin radial-gradient($startcolor: #fff, $endcolor: ) {
 
@@ -520,8 +476,6 @@ $numberBackground5: rgb(134, 31, 129); // purlpe;
 }
 
 
-
-
 .fact-sheet {
 	
 	* {
@@ -529,7 +483,7 @@ $numberBackground5: rgb(134, 31, 129); // purlpe;
 	}
 
 	header.fact-header {
-		// background: rgba(255, 255, 255, 0) url('http://www.epi.org/files/2012/facthead-african-american.png') no-repeat center;
+		// background: rgba(255, 255, 255, 0) url('#{$fileURL}facthead-african-american.png') no-repeat center;
 		background: desaturate($teal, 50%);
 		height: 200px;
 		width: 100%;
@@ -554,8 +508,8 @@ $numberBackground5: rgb(134, 31, 129); // purlpe;
 		width: 100%;
 		border: none;
 		height: 30px;
-		// background: rgba(255, 255, 255, 0) url('http://www.epi.org/files/2012/factsheet_hr.gif.x16') no-repeat center;
-		background: transparent url('http://www.epi.org/files/2012/factsheet_hr.gif.x16') no-repeat center;
+		// background: rgba(255, 255, 255, 0) url('#{$fileURL}factsheet_hr.gif.x16') no-repeat center;
+		background: transparent url('#{$fileURL}factsheet_hr.gif.x16') no-repeat center;
 	}
 
 	p {
@@ -575,26 +529,22 @@ $numberBackground5: rgb(134, 31, 129); // purlpe;
 			@include sans-serif;
 			font-size: 14px;
 			color: #555a5f;
-		
 		}
 	}
 
 	ul {
-		padding: 0 0 0 0;
+		padding: 0;
 		margin: 0;
 		list-style-type: none !important;
 		list-style-image: none !important;
 
 		li {
+			@include clearfix;
 			// @extend .clearfix;
+			clear: both;
 			@include sans-serif;
 			font-size: 14px;
 			color: #555a5f;
-			@include clearfix;
-			// margin-left: 100px;
-			clear: both;
-			//padding-left: 150px;
-			// padding: .5em 0;
 			padding: .8em 0 0 8em;
 			
 		}
@@ -605,16 +555,8 @@ $numberBackground5: rgb(134, 31, 129); // purlpe;
 			display: block;
 			float: left;
 			clear: both;
-			line-height: .9;
-			
-			
-			
 			width: 100px;
-			/*height: 40px;*/
-
-
-			/*border: 3px solid rgba(255,255,255,.2);*/
-
+			// border: 3px solid rgba(255,255,255,.2); 
 			margin: 0;
 			margin-left: -112px;
 			margin-right: 13px;
@@ -629,6 +571,7 @@ $numberBackground5: rgb(134, 31, 129); // purlpe;
 			font-weight: 700;
 			@include sans-serif-condensed;
 			font-size: 1.6em;
+			line-height: .9;
 			
 			// text-shadow: 2px 2px 5px #000;
 			@include text-shadow(2px 2px 5px #000);
@@ -672,9 +615,6 @@ $numberBackground5: rgb(134, 31, 129); // purlpe;
 		font-weight: 800;
 		padding-top: .25em;
 		padding-bottom: .25em;
-		// background: #eee;
-
-
 
 		border-bottom: 1px solid #ccc;
 		border-left: none;
@@ -728,25 +668,21 @@ $numberBackground5: rgb(134, 31, 129); // purlpe;
 }
 
 
-
-
-//intro box
+//intro box @TODO this is terrible -- should be a div inside TinyMCE
 
 h3 em {
 	font-weight: normal;
 	font-size: 1.3em;
 	color: #888;
-
 }
-
 
 // Table of contents page
 
 .page-id-4213 {
 	a[href$=xlsx]:after, a[href$=xls]:after {
 		// content: ' ';
-		content: url('http://www.epi.org/files/2012/icon-excel1.png.12');
-		// background: url('http://www.epi.org/files/2012/icon-excel1.png.24') no-repeat center;
+		content: url('#{$fileURL}icon-excel1.png.12');
+		// background: url('#{$fileURL}icon-excel1.png.24') no-repeat center;
 		width: 1em;
 		margin-bottom: -4px;
 		margin-left: .5em;
@@ -774,6 +710,7 @@ h3 em {
 	}
 	ul {
 		@include clearfix;
+		// @extend .clearfix;
 		padding: 0;
 		margin: 0;
 
@@ -852,8 +789,6 @@ h3 em {
 }
 
 
-
-
 /* Reader */
 
 #readercontainer {
@@ -927,8 +862,6 @@ h3 em {
 
 }
 
-
-
 #viewerbar {
 	background: #069;
 	padding: .5em;
@@ -948,9 +881,6 @@ h3 em {
 		background: none;
 	}
 }
-
-
-
 
 
 #pdf_content {
@@ -973,8 +903,6 @@ ul.chapter-toc li {
 	padding: .5em 0;
 	border-top: 1px solid #ccc;
 }
-
-
 
 .chaptertoc {
 
@@ -1005,7 +933,6 @@ ul.chapter-toc li {
 	}
 }
 
-
 #reader_bar {
 	@include box-shadow-bevel;
 	background: darken($teal, 10%);
@@ -1019,7 +946,6 @@ ul.chapter-toc li {
 		line-height: 40px;
 		background: $teal;
 		padding: 0 20px;
-
 	}
 
 	h1 {
@@ -1058,8 +984,6 @@ ul.chapter-toc li {
 		}
 	}
 
-
-
 	.active-chapter {
 		@include serif;
 		font-weight: normal;
@@ -1089,8 +1013,6 @@ ul.chapter-toc li {
 }
 
 
-
-
 /* Royal slider */
 
 // Fix Safari invisible/flashing menu glitch caused by RoyalSlider JS
@@ -1104,14 +1026,11 @@ ul.chapter-toc li {
 	margin: auto;
 
 	border: 3px solid rgba(120,120,120,0.5);
-	// border: 4px solid red;
 	@include box-shadow(0px, 1px, 6px, rgba(0,0,0,0.2));
-
 
 	.rsSlide {
 		background: #e5e5e5;
 	}
-
 
 	.coloredBlock {
 		padding: 12px;
@@ -1156,7 +1075,6 @@ ul.chapter-toc li {
 			text-transform: uppercase;
 			color: #676767;
 		}
-
 	}
 
 	.infoBlockLeftBlack {
@@ -1170,9 +1088,7 @@ ul.chapter-toc li {
 		}
 		h6{
 			color: #bbc3ca;
-		
-		}
-	
+		}	
 	}
 
 	.infoBlockRightBlack {
@@ -1187,7 +1103,6 @@ ul.chapter-toc li {
 		}
 		h6{
 			color: #bbc3ca;
-		
 		}
 	}
 
@@ -1214,13 +1129,7 @@ ul.chapter-toc li {
 		max-width: 1400px;
 		margin: 0 auto 24px;
 	}
-
 }
-
-
-
-
-
 
 @media screen and (min-width:960px) and (min-height:660px) {
 	.heroSlider .rsOverflow,
@@ -1230,11 +1139,12 @@ ul.chapter-toc li {
 }
 
 @media screen and (min-width:960px) and (min-height:1000px) {
-		.heroSlider .rsOverflow,
-		.royalSlider.heroSlider {
-				// height: 660px !important;
-		}
+	.heroSlider .rsOverflow,
+	.royalSlider.heroSlider {
+			// height: 660px !important;
+	}
 }
+
 @media screen and (min-width: 0px) and (max-width: 800px) {
 	.royalSlider.heroSlider,
 	.royalSlider.heroSlider .rsOverflow {
@@ -1257,9 +1167,28 @@ ul.chapter-toc li {
 }
 
 
+.fact-sheet {
+	@include sans-serif;
+	font-size: .8em;
 
-// PDF styling
+	.factsheet-intro {
+	
+		font-size: 1.3em;
+		font-weight: normal;
+		padding-top: 1em;
+		font-weight: 600;
 
+	}
+
+	hr {
+		display: none;
+		margin: 0;
+	}
+}
+
+
+
+/* Print and PDF template (Prince XML/Docraptor) */
 
 
 .print-header {
@@ -1268,26 +1197,20 @@ ul.chapter-toc li {
 	border-top: 5px solid #042a4e;
 	border-bottom: 1px solid #fff;
 	background-color: #083c6e;
-	//background: #ccc;
-	//background: $teal;
-	//border-top: 5px solid lighten($teal, 50%);
 	text-align: center;
 	@include smallcaps;
 	@include sans-serif;
 	padding: .5em 2em;
-
 	color: white;
 
 	strong {
 		opacity: .6;
 		font-weight: bold;
-
 	}
 	
 	a {
-	color: inherit;
-	text-decoration: none;
-	
+		color: inherit;
+		text-decoration: none;
 	}
 }
 
@@ -1306,30 +1229,6 @@ ul.chapter-toc li {
 	color: #3c3f42;
 	margin-bottom: 0;
 }
-
-
-
-	.fact-sheet {
-		@include sans-serif;
-		font-size: .8em;
-
-		.factsheet-intro {
-		
-			font-size: 1.3em;
-			font-weight: normal;
-			padding-top: 1em;
-			font-weight: 600;
-
-		}
-
-		hr {
-			display: none;
-			margin: 0;
-		}
-
-	}
-
-
 
 
 @media screen {
@@ -1352,13 +1251,8 @@ ul.chapter-toc li {
 	clear: both;
 /*	display: none;*/
 	}
-	
 }
 
-
-/****************************************************
-	Print/PDF template
-****************************************************/
 
 @page {
 	size: 8.5in 11.0in;
@@ -1411,27 +1305,18 @@ ul.chapter-toc li {
 		margin-bottom: -.2cm;
 	}
 
-
 	@top {
 		content: "";
 		//border-bottom: 1px solid #CCC;			
 		margin-bottom: 1em;
 	}
-
-
-
 }
-
-
-
 
 
 @page:first { 
 	/*margin-top: 1.8cm;*/
 	@top { content: normal }
 }
-
-
 
 .footer {
     // flow: static(footer);
@@ -1441,14 +1326,9 @@ ul.chapter-toc li {
     flow: static(footerleft);
 }
 
-
-
 #pdf-topbanner {
 	flow:static(topbanner);
 }
-
-
-
 
 .figure.float-none { float: none; }
 .figure.float-left { float: left; }
@@ -1464,16 +1344,7 @@ ul.chapter-toc li {
 .figure.float-prince-top-if-necessary { float: prince-top-if-necessary; }
 .figure.float-prince-bottom-if-necessary { float: prince-bottom-if-necessary; }
 
-
-
-
-/***************************************************
-Uncomment this if you want to make the body of the paper two columns.
-There are some limitations: Figures must be floated to the top or bottom of the page.
-*****************************************************/
-
 .entry-content {
-
 	columns: 1;
 	column-gap: 1.5em;
 	column-rule-width: .05em;
@@ -1482,13 +1353,14 @@ There are some limitations: Figures must be floated to the top or bottom of the 
 	
 	text-align: justify;
 	
-	
 	prince-hyphenate-lines: 2;
 	prince-hyphenate-before: 3;
 	prince-hyphenate-after: 3;
 	
 }
 
+
+/* Sidebar */
 
 #aside {
 	.widget-data {
@@ -1514,8 +1386,8 @@ There are some limitations: Figures must be floated to the top or bottom of the 
 
 		p:after {
 			// content: ' ';
-			content: url('http://www.epi.org/files/2012/icon-excel1.png.18');
-			// background: url('http://www.epi.org/files/2012/icon-excel1.png.24') no-repeat center;
+			content: url('#{$fileURL}icon-excel1.png.18');
+			// background: url('#{$fileURL}icon-excel1.png.24') no-repeat center;
 			width: 1em;
 			margin-bottom: -6px;
 			margin-left: 3px;
@@ -1527,7 +1399,6 @@ There are some limitations: Figures must be floated to the top or bottom of the 
 	}
 
 }
-
 
 .ss-rows, .ss-barchart {
 	&:before: color: #ccc;
@@ -1544,13 +1415,13 @@ strong.figurelabel {
 }
 
 
+/* Chart search and TOC interface */
 
 .quicksearch {
 	@include box-shadow(0, 0, 4px, rgba(0, 0, 0, 0.4), inset);
 	margin: 2em 0;
 	padding: 1em;
 	background: #ccc;
-
 
 	.chaptertoc {
 		margin: 1em 0 .5em;
@@ -1586,8 +1457,7 @@ strong.figurelabel {
 }
 
 
-
-/* Styles for text inputs in blur and active states */
+/* Form fields: blur and active states */
 // Used with jQuery clearField plugin
 
 .clearFieldBlurred { 
@@ -1603,7 +1473,7 @@ strong.figurelabel {
 }
 
 
-
+/* Jump drive page */
 
 .page-id-37716 {
 
@@ -1690,11 +1560,11 @@ strong.figurelabel {
 				@include text-shadow(1px 1px 5px #888);
 			}
 		}
-
 	}
-
-
 }
+
+
+/* Big text widget */
 
 .widget-bigtext {
 	font-size: 1.2em;
@@ -1732,12 +1602,13 @@ strong.figurelabel {
 
 
 /* Menu */
+
 ul#nav {
 	& > li {
 		& > ul {
 			li.subject-menu-toggler, li.demographic-menu-toggler {
 				a {
-					// url(http://www.epi.org/files/2012/swa-sprite.png) no-repeat 10px -1582px;
+					// url(#{$fileURL}swa-sprite.png) no-repeat 10px -1582px;
 
 					// &:after {
 					// 	content: " +";
