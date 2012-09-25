@@ -61,6 +61,8 @@ class SassMediaNode extends SassNode {
    * @return array An empty array
    */
   public function parse($context) {
+    $this->token->source = SassDirectiveNode::interpolate_nonstrict($this->token->source, $context);
+
     $node = new SassRuleNode($this->token, $context);
     $node->root = $this->parent->root;
 
@@ -77,7 +79,7 @@ class SassMediaNode extends SassNode {
     //  $rule = $try;
     //}
 
-    $node->children = array(new SassString($rule->render()));
+    $node->children = array(new SassString($rule->render($context)));
 
     return array($node);
   }

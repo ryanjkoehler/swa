@@ -117,33 +117,8 @@ class PHPSass_TestCase extends PHPUnit_Framework_TestCase {
 
   public function testBasic() {
     $this->runSassTest('basic.sass');
-
   }
 
-  public function testBork1() {
-    $this->markTestIncomplete('This test has not been implemented yet.');
-    //$this->runSassTest('bork1.sass');
-  }
-
-  public function testBork2() {
-    $this->markTestIncomplete('This test has not been implemented yet.');
-    //$this->runSassTest('bork2.sass');
-  }
-
-  public function testBork3() {
-    $this->markTestIncomplete('This test has not been implemented yet.');
-    //$this->runSassTest('bork3.sass');
-  }
-
-  public function testBork4() {
-    $this->markTestIncomplete('This test has not been implemented yet.');
-    //$this->runSassTest('bork4.sass');
-  }
-
-  public function testBork5() {
-    $this->markTestIncomplete('This test has not been implemented yet.');
-    //$this->runSassTest('bork5.sass');
-  }
 
   public function testComments() {
     $this->runSassTest('comments.sass');
@@ -159,6 +134,10 @@ class PHPSass_TestCase extends PHPUnit_Framework_TestCase {
 
   public function testCompressed() {
     $this->runSassTest('compressed.sass');
+  }
+
+  public function testContent() {
+    $this->runSassTest('content.scss');
   }
 
   public function testCss3() {
@@ -177,12 +156,16 @@ class PHPSass_TestCase extends PHPUnit_Framework_TestCase {
     $this->runSassTest('expanded.sass');
   }
 
+  public function testExtend() {
+    $this->runSassTest('extend.sass');
+  }
+
   public function testExtendPlaceholders() {
     $this->runSassTest('extend_placeholders.scss');
   }
 
-  public function testExtend() {
-    $this->runSassTest('extend.sass');
+  public function testFilters() {
+    $this->runSassTest('filters.scss');
   }
 
   public function testFunctions() {
@@ -237,11 +220,6 @@ class PHPSass_TestCase extends PHPUnit_Framework_TestCase {
     $this->runSassTest('misc.scss');
   }
 
-  public function testMixinBork() {
-    $this->markTestIncomplete('This test has not been implemented yet.');
-    //$this->runSassTest('mixin_bork.sass');
-  }
-
   public function testMixinContent() {
     $this->runSassTest('mixin-content.sass');
     $this->runSassTest('mixin-content.scss');
@@ -263,39 +241,8 @@ class PHPSass_TestCase extends PHPUnit_Framework_TestCase {
     $this->runSassTest('multiline.sass');
   }
 
-  public function testNestedBork1() {
-    $this->markTestIncomplete('This test has not been implemented yet.');
-    //$this->runSassTest('nested_bork1.sass');
-  }
-
-  public function testNestedBork2() {
-    $this->markTestIncomplete('This test has not been implemented yet.');
-    //$this->runSassTest('nested_bork2.sass');
-  }
-
-  public function testNestedBork3() {
-    $this->markTestIncomplete('This test has not been implemented yet.');
-    //$this->runSassTest('nested_bork3.sass');
-  }
-
-  public function testNestedBork4() {
-    $this->markTestIncomplete('This test has not been implemented yet.');
-    //$this->runSassTest('nested_bork4.sass');
-  }
-
-  public function testNestedBork5() {
-    $this->markTestIncomplete('This test has not been implemented yet.');
-    //$this->runSassTest('nested_bork5.sass');
-  }
-
   public function testNestedImport() {
-    $this->markTestIncomplete('This test has not been implemented yet.');
-    //$this->runSassTest('nested_import.sass');
-  }
-
-  public function testNestedMixinBork() {
-    $this->markTestIncomplete('This test has not been implemented yet.');
-    //$this->runSassTest('nested_mixin_bork.sass');
+    $this->runSassTest('nested_import.sass');
   }
 
   public function testNested() {
@@ -303,7 +250,11 @@ class PHPSass_TestCase extends PHPUnit_Framework_TestCase {
   }
 
   public function testNestedMedia() {
-    $this->runSassTest('nested-media.scss');
+    $this->runSassTest('nested_media.scss');
+  }
+
+  public function testNestedPseudo() {
+    $this->runSassTest('nested_pseudo.scss');
   }
 
   public function testNumber() {
@@ -336,6 +287,10 @@ class PHPSass_TestCase extends PHPUnit_Framework_TestCase {
 
   public function testScssImport() {
     $this->runSassTest('scss_import.scss');
+  }
+
+  public function testSplats() {
+    $this->runSassTest('splats.scss');
   }
 
   public function testString() {

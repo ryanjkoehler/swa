@@ -49,7 +49,7 @@
         }
         else {
           print "\n\t<p class='fail'><em>FAIL</em> $name</p>";
-          print "<pre>$result</pre>"; 
+          print "<pre>$result</pre>";
         }
         flush();
 
@@ -79,7 +79,7 @@
       $diff = exec('diff -ibwB /tmp/scss_test_0 /tmp/scss_test_1', $out);
       if (count($out)) {
         if (isset($_GET['full'])) {
-          $out[] = $result;
+          $out[] = "\n\n\n" . $result;
         }
         return implode("\n", $out);
       } else {

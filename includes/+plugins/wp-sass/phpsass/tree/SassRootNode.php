@@ -76,8 +76,9 @@ class SassRootNode extends SassNode {
    * Render this node.
    * @return string the rendered node
    */
-  public function render() {
-    $node = $this->parse(new SassContext());
+  public function render($context = null) {
+    $context = new SassContext($context);
+    $node = $this->parse($context);
     $output = '';
     foreach ($node->children as $child) {
       $output .= $child->render();
