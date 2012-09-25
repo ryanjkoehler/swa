@@ -1,0 +1,2288 @@
+$default-border-radius: 1em !default;
+
+
+// To use the clearfix, put @extend clearfix in your declaration
+// This produces less code than using a @mixin
+
+
+// $darkblue: #036;
+$teal: #0074b9;
+
+
+@mixin clearfix {
+    zoom:1;
+    &:before, &:after {
+        content: "\0020";
+        display: block;
+        height: 0;
+        overflow: hidden;
+    }
+    &:after {
+        clear: both;
+    }
+}
+
+.clearfix {
+    zoom:1;
+    &:before, &:after {
+        content: "\0020";
+        display: block;
+        height: 0;
+        overflow: hidden;
+    }
+    &:after {
+        clear: both;
+    }
+}
+
+
+// @mixin clearfix {
+// 	&:before, &:after {
+// 		content: ""
+// 		display: table
+// 	}
+// 	&:after {
+// 	  clear: both
+// 	  }
+// 	zoom: 1
+// }
+
+
+
+
+@mixin sans-serif {
+	font-family: 'myriad-pro', Helvetica, sans-serif;
+}
+
+@mixin sans-serif-condensed {
+	font-family: 'myriad-pro-condensed', 'Arial Narrow', Helvetica, sans-serif;
+}
+
+@mixin serif {
+	font-family: Georgia, Times, serif;
+}
+
+
+@mixin transition-duration($duration: 0.6s) {
+	-webkit-transition-duration: $duration;
+    -moz-transition-duration: $duration;
+    transition-duration: $duration;
+}
+
+@mixin user-select($userselect: none) {
+	-webkit-user-select:$userselect;
+	-moz-user-select:n$userselectone;
+	-ms-user-select:$userselect;
+	user-select:$userselect;
+}
+
+
+
+@mixin box-sizing($type: border-box) {
+	-webkit-box-sizing: $type;
+	   -moz-box-sizing: $type;
+	        box-sizing: $type;
+}
+
+@mixin box-shadow($x: 1px, $y: 2px, $blur: 4px, $color: rgba(0,0,0,.2), $inset:"") {
+	-webkit-box-shadow: #{$inset} $y $x $blur $color;
+	-moz-box-shadow: 	#{$inset} $y $x $blur $color;
+	box-shadow: 		#{$inset} $y $x $blur $color;
+}
+
+@mixin box-shadow-bevel {
+    -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+@mixin text-shadow($opts: 0 -1px 0 rgba(0, 0, 0, 0.4)) {
+	// text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+	-webkit-text-shadow: $opts;
+	-moz-text-shadow: 	 $opts;
+	text-shadow: 		 $opts;
+	// -webkit-box-shadow: $y $x $blur $color;
+	// -moz-box-shadow: 	$y $x $blur $color;
+	// box-shadow: 		$y $x $blur $color;
+
+}
+
+
+@mixin box-shadow-inset($x: 0px, $y: 0px, $blur: 8px, $color: rgba(0,0,0,.2), $inset:"inset") {
+	@include box-shadow($x, $y, $blur, $color, $inset);
+}
+
+@mixin border-radius($radius: $default-border-radius) {
+	-webkit-border-radius: $radius;
+	-moz-border-radius: $radius;
+	border-radius: $radius;
+}
+
+@mixin border-top-left-radius($radius: $default-border-radius) {
+	-webkit-border-top-left-radius: $radius;
+	-moz-border-radius-topleft: $radius;
+	border-top-left-radius: $radius;
+}
+
+@mixin border-top-right-radius($radius: $default-border-radius) {
+	-webkit-border-top-right-radius: $radius;
+	-moz-border-radius-topright: $radius;
+	border-top-right-radius: $radius;
+}
+
+@mixin border-bottom-left-radius($radius: $default-border-radius) {
+	-webkit-border-bottom-left-radius: $radius;
+	-moz-border-radius-bottomleft: $radius;
+	border-bottom-left-radius: $radius;
+}
+
+@mixin border-bottom-right-radius($radius: $default-border-radius) {
+	-webkit-border-bottom-right-radius: $radius;
+	-moz-border-radius-bottomright: $radius;
+	border-bottom-right-radius: $radius;
+}
+
+
+.intro {
+	font-family: Georgia;
+	font-size: 1.4em;
+	color: #888;
+
+	u {
+		color: #444;
+	}
+
+	.firstphrase {
+		font-size: 1.8em;
+		line-height: 0;
+		color: hsl(200, 80%, 30%);
+	}
+}
+
+.display a {
+	text-decoration: none;
+}
+
+/* Thumbnail toggler */
+ul.display {
+	/*float: left;*/
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+
+	li {
+		float: left;
+		width: 100%;
+
+		&:nth-of-type(even) {
+			/*background: #ddd;*/
+		}
+
+		&:hover {
+		    @include transition-duration(0.2s);
+		}
+
+		.content_block {
+
+			a {
+				img{
+					padding: 5px;
+					/*border: 2px solid #ccc;*/
+					background: #fff;
+					margin: 0 15px 0 0;
+					float: left;
+				}
+
+				.daterange {
+
+					opacity: .6;
+					font-weight: normal;
+				}
+			}
+		}
+	}
+}
+
+
+ul.list_view {
+	
+	li {
+
+		&.active h2 a {
+			color: #0071b7;
+		}
+
+		.content_block {
+
+			a img{
+				display: none;
+			}
+		}	
+	}
+
+	.chartitem {
+		padding: .5em 0;
+		border-top: 1px solid #ddd;
+	}
+}
+
+ul.thumb_view {
+	* {
+		{
+			@include box-sizing;
+		}
+	}
+
+	li{
+		position: relative;
+		width: 200px;
+		margin-right: 13px;
+		margin-bottom: 13px;
+		height: 140px;
+		overflow: hidden;
+
+		@include box-shadow(1px, 1px, 4px, 0px, #ccc);
+
+		border-width: 2px;
+		border-style: solid;
+		border-color: #069;
+
+		border-color: #aaa;
+
+		&:hover { 
+			/*border-color: #FF5E99;*/
+			border-color: #0071b7;
+			/* border-color: hsla(); */
+			-moz-box-shadow:    none;
+			-webkit-box-shadow: none;
+			box-shadow:         none;
+		}
+
+		&:nth-child(3n) {
+			/*margin-right: 0;*/
+		}
+
+		p{
+			display: none;
+		}
+
+		img {
+			/*width: 250px;*/
+			width: 100%;
+		}
+
+		h2 {
+
+			cursor: pointer;
+			display: block;
+			position: absolute;
+			bottom: 0;
+			width: 100%;
+
+			background: #444;
+			background: rgba(0,0,0,.8);
+			@include text-shadow(1px 1px 1px #000);
+			// padding: 20px 10px;
+			padding: 1.5em .75em;
+			margin: 0;
+			color: #fff;
+			// font-size: 14px;
+			line-height: 1;
+
+
+			font-size: 1.1em;
+			font-weight: normal;
+			font-weight: 600;
+
+
+			@include text-shadow(1px 1px 1px #fff);
+			background: rgba(255,255,255,.8);
+			background: rgba(255,255,255,.9);
+			color: #444;
+
+			a {
+				color: #fff;
+				color: #444;
+
+			}
+		}
+
+		&.active h2 {
+			background: hsla(200, 100%, 30%, 1);
+			background: #fff;
+			@include transition-duration(0.6s);
+		}
+
+		.content_block a img {
+			margin: 0 0 10px;
+		}
+
+	}
+}
+
+
+/* View switcher button */
+
+a.switch_thumb {
+
+	width: 122px;
+	height: 26px;
+	line-height: 26px;
+	padding: 0;
+	margin: 10px 0;
+	display: block;
+	background: url('http://www.stateofworkingamerica.org/wp-content/themes/swa-clone/img/switch1.gif') no-repeat;
+	outline: none;
+	text-indent: -9999px;
+
+	float: right;
+	border: 3px solid rgba(0,0,0,.3);
+	margin-right: 1.5em;
+	
+}
+a:hover.switch_thumb {
+	filter:alpha(opacity=75);
+	opacity:.75;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=75)";
+}
+a.swap { background-position: left bottom; }
+
+
+
+h2.charttitle {
+	margin: .5em 0;
+	padding: 0;
+	/*margin-bottom: 1em;*/
+	font-size: 16px;
+}
+
+h2.charttitle a {
+	color: #444;
+}
+
+
+@mixin smallcaps {
+	@include sans-serif;
+	font-weight: 300;
+	text-transform: uppercase;
+	letter-spacing: .2em;
+	color: $teal; // #0071b7;
+}
+
+.sectiontitle {
+	@include smallcaps;
+
+
+
+
+	.typestyle-of, .typestyle-and {
+		@include serif;
+		// font-family: Times, Baskerville;
+		margin-right: .15em;
+		// opacity: .7;
+		font-style: italic;
+		letter-spacing: 0;
+		text-transform: none;
+	}
+
+
+
+}
+
+
+
+
+ /* Styles for Buttons */
+
+.button-link {
+	font-family: Georgia;
+	font-style: italic;
+
+    padding: .5em .7em;
+    background: #4479BA;
+    color: #FFF;
+
+    @include border-radius(.25em);
+
+    border: solid 1px #20538D;
+
+    
+ 	@include text-shadow( 0 -1px 0 rgba(0, 0, 0, 0.4) );
+
+ 	@include box-shadow-bevel;
+
+    @include transition-duration;
+    @include user-select;
+
+    &.blocky {
+    	display: block;
+    	margin-top: 1em;
+    	margin-bottom: 1em;
+    }
+
+    .ss-icon {
+    	// display: block;
+    	// float: right;
+    	// font-size: 1.2em;
+    	// margin-bottom: -.3em;
+    	vertical-align: middle;
+    	margin-right: .2em;
+    	padding-right: .2em;
+    }
+
+    span {
+    	font-family: 'myriad-pro';
+    	font-style: normal;
+    	text-transform: uppercase;
+    	font-weight: bold;
+    	color: hsl(200, 90%, 85%);
+    }
+
+    &:hover {
+        background: #356094;
+        border: solid 1px #2A4E77;
+        text-decoration: none;
+        color: #fff;
+    }
+
+    &:visited {
+    	color: #fff;
+    }
+
+    &:active {
+        -webkit-box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.6);
+        -moz-box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.6);
+        box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.6);
+
+        background: #2E5481;
+        border: solid 1px #203E5F;
+        color: #fff;
+    }
+}
+
+.middlebutton {
+	@include border-radius(0);
+}
+
+.leftbutton {
+	@include border-top-right-radius (0);
+	@include border-bottom-right-radius (0);
+}
+.rightbutton {
+	@include border-top-left-radius (0);
+	@include border-bottom-left-radius (0);
+}
+
+.buttoncontainer {
+	margin: 1em 0;
+	font-size: 1.4em;
+	text-align: right;
+}
+
+.centered {
+	text-align: center;
+}
+
+
+a.button {
+    padding: .5em .7em;
+    background: #666;
+
+	color: #fff;
+}
+
+
+
+
+
+/****************************************************
+FOR FACT SHEETS
+****************************************************/
+
+$numberBackground1: rgb(174, 25, 47); // red;
+$numberBackground2: rgb(0, 148, 206); // blue;
+$numberBackground3: rgb(152, 194, 45); // green;
+$numberBackground4: rgb(255, 156, 0); // orange;
+$numberBackground5: rgb(134, 31, 129); // purlpe;
+
+
+
+@mixin radial-gradient($startcolor: #fff, $endcolor: ) {
+
+	background: $startcolor;
+	background: -moz-radial-gradient(center, ellipse cover,  $startcolor 0%, $endcolor 100%);
+	background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,$startcolor), color-stop(100%,$endcolor));
+	background: -webkit-radial-gradient(center, ellipse cover,  $startcolor 0%,$endcolor 100%);
+	background: -o-radial-gradient(center, ellipse cover,  $startcolor 0%,$endcolor 100%);
+	background: -ms-radial-gradient(center, ellipse cover,  $startcolor 0%,$endcolor 100%);
+	background: radial-gradient(ellipse at center,  $startcolor 0%,$endcolor 100%);
+}
+
+
+
+
+.fact-sheet {
+	
+	* {
+		@include box-sizing;
+	}
+
+	header.fact-header {
+		// background: rgba(255, 255, 255, 0) url('http://www.epi.org/files/2012/facthead-african-american.png') no-repeat center;
+		background: desaturate($teal, 50%);
+		height: 200px;
+		width: 100%;
+		padding: 0;
+		@include box-shadow-inset(0,0,12px,rgba(0,0,0,.5), inset);
+
+		//border-bottom: .4em solid rgba(0,0,0,.5);
+
+		h1 {
+			@include sans-serif-condensed;
+			font-size: 4.3em;
+			width: 50%;
+			// background: rgba(0, 0, 0, .5);
+			color: #fff;
+			padding: 20px;
+			line-height: .85;
+			height: 200px;
+		}
+	}
+
+	hr {
+		width: 100%;
+		border: none;
+		height: 30px;
+		// background: rgba(255, 255, 255, 0) url('http://www.epi.org/files/2012/factsheet_hr.gif.x16') no-repeat center;
+		background: transparent url('http://www.epi.org/files/2012/factsheet_hr.gif.x16') no-repeat center;
+	}
+
+	p {
+		@include sans-serif;
+		// text-align: center;
+		font-size: 1.1em;
+		font-weight: 600;
+		color: #0e1b27;
+		padding-top: 12px;
+	}
+	
+	ol {
+		padding: 0;
+	
+	
+		li {
+			@include sans-serif;
+			font-size: 14px;
+			color: #555a5f;
+		
+		}
+	}
+
+	ul {
+		padding: 0 0 0 0;
+		margin: 0;
+		list-style-type: none !important;
+		list-style-image: none !important;
+
+		li {
+			// @extend .clearfix;
+			@include sans-serif;
+			font-size: 14px;
+			color: #555a5f;
+			@include clearfix;
+			// margin-left: 100px;
+			clear: both;
+			//padding-left: 150px;
+			// padding: .5em 0;
+			padding: .8em 0 0 8em;
+			
+		}
+
+		.calloutnumber {
+
+			box-sizing: border-box;
+			display: block;
+			float: left;
+			clear: both;
+			line-height: .9;
+			
+			
+			
+			width: 100px;
+			/*height: 40px;*/
+
+
+			/*border: 3px solid rgba(255,255,255,.2);*/
+
+			margin: 0;
+			margin-left: -112px;
+			margin-right: 13px;
+			padding: .4em .1em;
+			
+			
+			background-color: $numberBackground1;
+			@include radial-gradient($numberBackground1, saturate(darken($numberBackground1, 5%), 20%));
+
+			color: #fff;
+			text-align: center;
+			font-weight: 700;
+			@include sans-serif-condensed;
+			font-size: 1.6em;
+			
+			// text-shadow: 2px 2px 5px #000;
+			@include text-shadow(2px 2px 5px #000);
+			@include box-shadow-inset;
+			border-radius: 3px;
+
+			.light {
+				font-weight: 300;
+			}
+		}
+
+		.calloutnumber-active {
+
+		}
+
+		.callout-active {
+			color: red;
+			background: yellow;
+		}
+
+		&:nth-of-type(2n) .calloutnumber {
+			background-color: $numberBackground2;
+			@include radial-gradient($numberBackground2, saturate(darken($numberBackground2, 13%), 20%));
+		}
+
+		&:nth-of-type(3n) .calloutnumber {
+			background-color: $numberBackground3;
+			@include radial-gradient($numberBackground3, saturate(darken($numberBackground3, 13%), 20%));
+		}
+		&:nth-of-type(4n) .calloutnumber {
+			background-color: $numberBackground4;
+			@include radial-gradient($numberBackground4, saturate(darken($numberBackground4, 13%), 20%));
+		}
+	}
+
+	h2 {
+		font-size: 1.8em;
+		line-height: 1em;
+		letter-spacing: normal;
+		@include sans-serif-condensed;
+		font-weight: 800;
+		padding-top: .25em;
+		padding-bottom: .25em;
+		// background: #eee;
+
+
+
+		border-bottom: 1px solid #ccc;
+		border-left: none;
+		border-right: none;
+
+		em {
+			font-style: normal;
+			color: #888;
+			font-weight: 300;
+		}
+	}
+
+	.box {
+		page-break-inside: avoid;
+		@include clearfix;
+		background: #eee;
+		border: 1px solid #ccc;
+		@include box-shadow-inset;
+		padding: 1em 2em;
+		padding-left: 200px;
+		margin: 1em 0;
+
+		p {
+			font-weight: normal;
+		}
+
+		h3 {
+			float: left;
+			width: 200px;
+			margin-left: -200px;
+			padding: 0 20px;
+			font-size: 1.1em;
+			color: #888;
+			font-weight: 300;
+			font-style: italic;
+			line-height: 1;
+			text-align: right;
+
+			strong {
+				@include sans-serif-condensed;
+				font-weight: 800;
+				font-weight: 500;
+				font-style: normal;
+				color: #333;
+				text-transform: uppercase;
+				font-size: 2em;
+				padding-top: 20px;
+			}
+		}
+	}
+}
+
+
+
+
+//intro box
+
+h3 em {
+	font-weight: normal;
+	font-size: 1.3em;
+	color: #888;
+
+}
+
+
+// Table of contents page
+
+.page-id-4213 {
+	a[href$=xlsx]:after, a[href$=xls]:after {
+		// content: ' ';
+		content: url('http://www.epi.org/files/2012/icon-excel1.png.12');
+		// background: url('http://www.epi.org/files/2012/icon-excel1.png.24') no-repeat center;
+		width: 1em;
+		margin-bottom: -4px;
+		margin-left: .5em;
+		opacity: .6;
+		height: 1em;
+	}
+}
+
+
+.haschart-box {
+	font-size: 13px; //.9em;
+	@include sans-serif;
+	font-weight: 300;
+	color: $teal;
+}
+
+
+/* Chart Index pages */
+
+.post-38007, .post-38012 {
+	h3 {
+		margin: 0;
+		padding: 0;
+		font-size: 1.5em;
+	}
+	ul {
+		@include clearfix;
+		padding: 0;
+		margin: 0;
+
+
+		li {	
+			display: inline;
+			float: left;
+			padding: 0;
+			margin: 0;
+			margin-right: 1em;
+			margin-bottom: 1.5em;
+		}
+		a {
+			font-family: Georgia;
+			font-style: italic;
+		
+			padding: .5em 1em;
+			background: #4479BA;
+			color: #FFF;
+		
+			@include border-radius(.25em);
+		
+			border: solid 1px #20538D;
+			
+		 	@include text-shadow( 0 -1px 0 rgba(0, 0, 0, 0.4) );
+		 	@include box-shadow-bevel;
+			@include transition-duration;
+			@include user-select;
+		
+			&.blocky {
+				display: block;
+				margin-top: 1em;
+				margin-bottom: 1em;
+			}
+		
+			.ss-icon {
+				// display: block;
+				// float: right;
+				// font-size: 1.2em;
+				// margin-bottom: -.3em;
+				vertical-align: middle;
+				margin-right: .2em;
+				padding-right: .2em;
+			}
+		
+			span {
+				font-family: 'myriad-pro';
+				font-style: normal;
+				text-transform: uppercase;
+				font-weight: bold;
+				color: hsl(200, 90%, 85%);
+			}
+		
+			&:hover {
+				background: #356094;
+				border: solid 1px #2A4E77;
+				text-decoration: none;
+				color: #fff;
+			}
+		
+			&:visited {
+				color: #fff;
+			}
+		
+			&:active {
+				-webkit-box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.6);
+				-moz-box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.6);
+				box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.6);
+		
+				background: #2E5481;
+				border: solid 1px #203E5F;
+				color: #fff;
+			}
+		} 	
+	}
+}
+
+
+
+
+/* Reader */
+
+#readercontainer {
+	& * {
+		@include box-sizing;
+	}
+	width: 100%;
+	/*height: 800px;*/
+	background: #444;
+}
+
+#viewer {
+	width: 600px;
+	height: 500px;
+	float: left;
+	background: #ccc;
+}
+
+#navigator {
+	margin-right: -220px;
+	width: 40%;
+	float: right;
+	background: #666;
+}
+
+.chapterbox {
+	// padding: .5em;
+	padding: 0;
+	border-bottom: 2px solid #ccc;
+
+
+	h2 {
+		position: relative;
+		margin: 0;
+		// margin-left: 40px;
+		padding: .5em;
+
+		a {
+			color: #fff;
+		}
+	}
+
+	a:hover {
+		text-decoration: none;
+	}
+
+	.chapternumber {
+		display: block;
+		float: left;
+		/*float: left;*/
+		// position: absolute;
+		// left: -30px;
+		// top: -12px;
+		width: 30px;
+		text-align: center;
+		// padding: 2px 8px;
+		// margin: 0;
+		// margin-left: -20px;
+
+		font-size: 24px;
+		font-weight: 800;
+		opacity: .6;
+		background:	#444;
+	}
+
+	.expansion {
+		background: #eee;
+		padding: 2em 1em;
+		margin-top: .8em;
+	}
+
+}
+
+
+
+#viewerbar {
+	background: #069;
+	padding: .5em;
+	color: #fff;
+	font-size: 1.1em;
+
+	.vbelement {
+		float: right;
+		text-transform: uppercase;
+		color: #fff;
+		padding: .2em .4em;
+		background: #047;
+	}
+	.vbtitle {
+		text-transform: none;
+		float: left;
+		background: none;
+	}
+}
+
+
+
+
+
+#pdf_content {
+	/*box-sizing: border-box;*/
+
+	width: 100%;
+	height: 450px;
+}
+
+#pdf_content .pdf-fallback {
+	font-family: Georgia;
+	font-size: italic;
+	font-size: 2em;
+	opacity: .7;
+	text-align: center;
+	padding: 4em;
+}
+
+ul.chapter-toc li {
+	padding: .5em 0;
+	border-top: 1px solid #ccc;
+}
+
+
+
+.chaptertoc {
+
+	font-size: .9em;
+
+	h3 {
+		em {
+			@include smallcaps;
+			// font-size: .8em;
+			font-style: normal;
+			color: #666;
+		}
+	}
+
+	& > ul {
+
+		list-style-type: none;
+		margin-left: 0;
+		font-weight: bold;
+
+		& > li > ul {
+			font-weight: normal;
+		}
+
+		.haschart-box {
+			display: none;
+		}
+	}
+}
+
+
+#reader_bar {
+	@include box-shadow-bevel;
+	background: darken($teal, 10%);
+	color: white;
+	height: 40px;
+
+	.buylink {
+		@include box-shadow-bevel;
+		float: right;
+		color: #fff;
+		line-height: 40px;
+		background: $teal;
+		padding: 0 20px;
+
+	}
+
+	h1 {
+		float: left;
+		padding: 0 20px;
+		line-height: 40px;
+		margin: 0;
+		font-size: 16px;
+		@include sans-serif;
+
+		span {
+			font-weight: 200;
+			@include smallcaps;
+			font-size: .8em;
+			color: lighten($teal, 50%);
+		}
+	}
+}
+
+#reader_nav{
+	padding: .5em 1em;
+
+	@include smallcaps;
+
+	a {
+		color: $teal;
+		&:hover {
+			text-decoration: none;
+			color: black;
+		}
+		&.ital {
+			@include serif;
+			font-style: italic;
+			color: #888;
+			text-transform: none;	
+		}
+	}
+
+
+
+	.active-chapter {
+		@include serif;
+		font-weight: normal;
+		color: #444;
+		font-size: 1.2em;
+		text-transform: none;
+		// font-weight: bold;
+		// background: lighten($teal, 20%);
+		padding-left: .5em;
+		padding-right: .5em;
+		// color: white;
+	}
+}
+
+#reader_more {
+	@include box-shadow-inset;
+	padding: .5em 1em;
+	border-top: 1px dotted #ccc;
+	background: #eee;
+	a {
+		color: #888;
+
+		&:hover {
+			color: #aaa;
+		}
+	}
+}
+
+
+
+
+/* Royal slider */
+
+// Fix Safari invisible/flashing menu glitch caused by RoyalSlider JS
+#wpadminbar *, #nav {
+     -webkit-backface-visibility: hidden;   
+}
+
+#full-width-slider {
+	clear: both;
+	width: 900px;
+	margin: auto;
+
+	border: 3px solid rgba(120,120,120,0.5);
+	// border: 4px solid red;
+	@include box-shadow(0px, 1px, 6px, rgba(0,0,0,0.2));
+
+
+	.rsSlide {
+		background: #e5e5e5;
+	}
+
+
+	.coloredBlock {
+		padding: 12px;
+		background: rgba(255,0,0,0.6);
+		color: #FFF;
+		 width: 200px;
+		 left: 20%;
+		 top: 5%;
+	}
+	
+	.infoBlock {
+		position: absolute;
+		top: 30px;
+		right: 30px;
+		left: auto;
+		max-width: 30%;
+		padding-bottom: 0;
+		background: #FFF;
+		background: rgba(255, 255, 255, 0.8);
+		overflow: hidden;
+		padding: 20px;
+		
+		h4 {
+			font-size: 24px;
+			line-height: 1.2;
+			margin: 0;
+			padding-bottom: 10px;
+		}
+		p {
+			font-size: 14px;
+			margin: 4px 0 0;
+		}
+		a {
+			color: #red;
+			text-decoration: underline;
+		}
+		h6 {
+			font-size: 14px;
+			line-height: 1.2;
+			margin: 0;
+			padding-bottom: 3px;
+			text-transform: uppercase;
+			color: #676767;
+		}
+
+	}
+
+	.infoBlockLeftBlack {
+		color: #FFF;
+		background: #000;
+		background: rgba(0,0,0,0.75);
+		left: 30px;
+		right: auto;
+		a {
+			color: #6abeff;
+		}
+		h6{
+			color: #bbc3ca;
+		
+		}
+	
+	}
+
+	.infoBlockRightBlack {
+		color: #FFF;
+		background: #000;
+		background: rgba(0,0,0,0.75);
+		right: 30px;
+		left: auto;
+		
+		a {
+			color: #6abeff;
+		}
+		h6{
+			color: #bbc3ca;
+		
+		}
+	}
+
+	.photosBy {
+		position: absolute;
+		line-height: 24px;
+		font-size: 12px;
+		background: #FFF;
+		color: #000;
+		padding: 0px 10px;
+		position: absolute;
+		left: 12px;
+		bottom: 12px;
+		top: auto;
+		border-radius: 2px;
+		z-index: 25; 
+
+		a {
+			color: #000;
+		}
+	}
+
+	.fullWidth {
+		max-width: 1400px;
+		margin: 0 auto 24px;
+	}
+
+}
+
+
+
+
+
+
+@media screen and (min-width:960px) and (min-height:660px) {
+	.heroSlider .rsOverflow,
+	.royalSlider.heroSlider {
+			// height: 520px !important;
+	}
+}
+
+@media screen and (min-width:960px) and (min-height:1000px) {
+		.heroSlider .rsOverflow,
+		.royalSlider.heroSlider {
+				// height: 660px !important;
+		}
+}
+@media screen and (min-width: 0px) and (max-width: 800px) {
+	.royalSlider.heroSlider,
+	.royalSlider.heroSlider .rsOverflow {
+		height: 300px !important;
+	}
+	.infoBlock {
+		padding: 10px;
+		height: 100%;
+		max-height: 100%;
+		min-width: 40%;
+		left: 0;
+		top: 0;
+		right: auto;
+		font-size: 12px;
+	}
+	.infoBlock h3 {
+		 font-size: 14px;
+		 line-height: 17px;
+	}
+}
+
+
+
+// PDF styling
+
+
+
+.print-header {
+
+	margin-bottom: -22px;
+	border-top: 5px solid #042a4e;
+	border-bottom: 1px solid #fff;
+	background-color: #083c6e;
+	//background: #ccc;
+	//background: $teal;
+	//border-top: 5px solid lighten($teal, 50%);
+	text-align: center;
+	@include smallcaps;
+	@include sans-serif;
+	padding: .5em 2em;
+
+	color: white;
+
+	strong {
+		opacity: .6;
+		font-weight: bold;
+
+	}
+	
+	a {
+	color: inherit;
+	text-decoration: none;
+	
+	}
+}
+
+.print-footer {
+
+    flow: static(footer);
+
+	background: #c8cbce;
+
+	text-align: center;
+	@include smallcaps;
+	@include sans-serif;
+	padding: 1em 2em;
+	border-top: .5em solid #ccc;
+	font-size: 10pt;
+	color: #3c3f42;
+	margin-bottom: 0;
+}
+
+
+
+	.fact-sheet {
+		@include sans-serif;
+		font-size: .8em;
+
+		.factsheet-intro {
+		
+			font-size: 1.3em;
+			font-weight: normal;
+			padding-top: 1em;
+			font-weight: 600;
+
+		}
+
+		hr {
+			display: none;
+			margin: 0;
+		}
+
+	}
+
+
+
+
+@media screen {
+	
+	body {
+		// width: 7in;
+		// margin: 0 auto 2em;
+	}
+	
+	.footer { margin-top: 1em; }
+	
+	.admin-only { display: block !important; }
+	
+	.admin-only {
+	background: #ff9;
+	border: 1px solid #ccc;
+	padding: .5em;
+	font: .9em Helvetica;
+	overflow: auto;
+	clear: both;
+/*	display: none;*/
+	}
+	
+}
+
+
+/****************************************************
+	Print/PDF template
+****************************************************/
+
+@page {
+	size: 8.5in 11.0in;
+	size: US-Letter;
+	margin: 1.905cm 1.905cm 2cm;
+	margin: 1.905cm 1.905cm 1.8cm;
+	padding-bottom: .25cm;
+	/* columns: 2;*/
+	/* column-gap: 1.5em;*/
+
+ /*font: 16pt/1.5 "Crimson Text", serif;*/
+
+	// @bottom-right {
+	// 	content: "Page " counter(page);
+	// 	border-top: 1px solid #888;			
+	// 	padding-top: 1em;
+	// 	vertical-align: top;
+	// 	text-transform:uppercase;
+	// 	font-family: "myriad-pro", Trebuchet, sans-serif;
+	// 	font-size: 8pt;
+	// 	letter-spacing: .1em;
+	// }
+
+	// @bottom-left {
+	// 	/*content: "Economic Policy Institute";*/
+	//   	/*content: "www.epi.org";*/
+
+	// 	// content: flow(footerleft);
+	// 	border-top: 1px solid #888;			
+	// 	padding-top: 1em;
+	// 	vertical-align: top;
+	// 	text-transform:uppercase;
+	// 	font-family: "myriad-pro", Trebuchet, sans-serif;
+	// 	font-size: 8pt;
+	// 	letter-spacing: .1em;
+	// }
+
+
+
+   @bottom-left { content: none }
+   @bottom-right { content: none }
+
+
+	@bottom {
+		content: flow(footer);
+		//border-top: 1px solid #ccc;			
+		// padding-top: .5em;
+		margin-left: -2cm;
+		margin-right: -2cm;
+		margin-bottom: -.2cm;
+	}
+
+
+	@top {
+		content: "";
+		//border-bottom: 1px solid #CCC;			
+		margin-bottom: 1em;
+	}
+
+
+
+}
+
+
+
+
+
+@page:first { 
+	/*margin-top: 1.8cm;*/
+	@top { content: normal }
+}
+
+
+
+.footer {
+    // flow: static(footer);
+}
+
+.footerleft-content {
+    flow: static(footerleft);
+}
+
+
+
+#pdf-topbanner {
+	flow:static(topbanner);
+}
+
+
+
+
+.figure.float-none { float: none; }
+.figure.float-left { float: left; }
+.figure.float-right { float: right; }
+.figure.float-prince-column-top { float: prince-column-top; }
+.figure.float-prince-column-bottom { float: prince-column-bottom; }
+.figure.float-prince-column-top-if-necessary { float: prince-column-top-if-necessary; }
+.figure.float-prince-column-bottom-if-necessary { float: prince-column-bottom-if-necessary; }
+.figure.float-top, .float-top { float: top; }
+.figure.float-bottom, .float-bottom { float: bottom; }
+.figure.float-prince-top-next { float: prince-top-next; }
+.figure.float-prince-bottom-next { float: prince-bottom-next; }
+.figure.float-prince-top-if-necessary { float: prince-top-if-necessary; }
+.figure.float-prince-bottom-if-necessary { float: prince-bottom-if-necessary; }
+
+
+
+
+/***************************************************
+Uncomment this if you want to make the body of the paper two columns.
+There are some limitations: Figures must be floated to the top or bottom of the page.
+*****************************************************/
+
+.entry-content {
+
+	columns: 1;
+	column-gap: 1.5em;
+	column-rule-width: .05em;
+	column-rule-style: solid;
+	column-rule-color: #444;
+	
+	text-align: justify;
+	
+	
+	prince-hyphenate-lines: 2;
+	prince-hyphenate-before: 3;
+	prince-hyphenate-after: 3;
+	
+}
+
+
+#aside {
+	.widget-data {
+		background: url(/wp-content/themes/swa-clone/img/sprite/divide.png) no-repeat -51px bottom;
+		padding-top: 25px;
+		padding-bottom: 25px;
+	}
+
+	.widget-data-2 {
+		color: #666;
+		@include serif;
+		font-size: 1.6em;
+		padding-bottom: 1em;
+
+		a {
+			@include smallcaps;
+			letter-spacing: 0.1em;
+			display: block;
+			font-weight: normal;
+			color: desaturate(green, 40%);
+			color: desaturate($teal, 40%);
+		}
+
+		p:after {
+			// content: ' ';
+			content: url('http://www.epi.org/files/2012/icon-excel1.png.18');
+			// background: url('http://www.epi.org/files/2012/icon-excel1.png.24') no-repeat center;
+			width: 1em;
+			margin-bottom: -6px;
+			margin-left: 3px;
+			margin-right: 3px;
+			opacity: .6;
+			height: 1em;
+		}
+
+	}
+
+}
+
+
+.ss-rows, .ss-barchart {
+	&:before: color: #ccc;
+}
+
+.details {
+	color: #888;
+}
+
+strong.figurelabel {
+	color: $teal;
+	color: #666;
+	font-weight: normal;
+}
+
+
+
+.quicksearch {
+	@include box-shadow(0, 0, 4px, rgba(0, 0, 0, 0.4), inset);
+	margin: 2em 0;
+	padding: 1em;
+	background: #ccc;
+
+
+	.chaptertoc {
+		margin: 1em 0 .5em;
+
+		ol, ul {
+			@include smallcaps;
+			font-weight: normal;
+			letter-spacing: 0.1em;
+			list-style-type: square;
+		}
+
+		a {
+			color: #666;
+
+			&.active {
+				color: $teal;
+			}
+		}
+	}
+}
+
+
+
+.bigsearchfield {
+	/*background: #efefef;*/
+	padding: .3em .4em;
+	font-family: Georgia;
+	font-size: 2em;
+	width: 300px;
+
+	color: #aaa; 
+	font-style: italic; 
+}
+
+
+
+/* Styles for text inputs in blur and active states */
+// Used with jQuery clearField plugin
+
+.clearFieldBlurred { 
+	background: #eee;
+	color: #aaa; 
+	font-style: italic; 
+}
+
+.clearFieldActive { 
+	color: #666; 
+	color: #222; 
+	font-style: normal; 
+}
+
+
+
+
+.page-id-37716 {
+
+	.jump-title {
+		color: #fff;
+		// color: #69B;
+		// font-weight: bold;
+		text-align: center;
+		font-size: 18px;
+
+		a {
+			color: lighten($teal, 20%);
+			color: #fff;
+			background: $teal;
+			padding: .1em .5em;
+		}
+
+		span {
+			font-size: .9em;
+			font-weight: normal;
+			@include smallcaps;
+			color: lighten($teal, 20%);
+			color: yellow;
+		}
+	}
+
+	.jump-intro {
+		h1 {
+			// font-size: 2em;
+			padding-top: 1.5em;
+		}
+		h3 {
+			color: #888;
+			font-weight: normal;
+			font-size: 1.3em;
+
+			strong, em {
+				font-size: 1em;
+			}
+		}
+	}
+	#swabook {
+		float: right;
+		margin: 2em;
+		margin-right: 0;
+	}
+	.section {
+		margin: 1em 0;
+		padding: 1em 0;
+		border-bottom: 1px solid #ccc;
+
+		padding: 1em 2em .5em;
+		background: #eee;
+		@include box-shadow-inset;
+
+		&:hover {
+			background: lighten($teal, 60%);
+			@include transition-duration(0.5s);
+		}
+
+		p:first-of-type:first-letter {
+			// color: red;
+			float: left; 
+			color: #bbb; 
+			font-size: 75px; 
+			line-height: 60px; 
+			padding-top: 4px; 
+			padding-right: 8px; 
+			padding-left: 3px; 
+			font-family: Georgia;
+		}
+		
+
+		.sectiontitle {
+			strong {
+				font-weight: 800;
+				float: right;
+				color: darken($teal, 20%);
+				background: #ccc;
+				color: #fff;
+				@include border-radius(30px);
+				padding: .01em .22em 0.01em .32em;
+				@include box-shadow-inset;
+				@include text-shadow(1px 1px 5px #888);
+			}
+		}
+
+	}
+
+
+}
+
+.widget-bigtext {
+	font-size: 1.2em;
+
+	ul {
+		list-style-type: square;
+	}
+
+	li {
+		color: darken($teal, 15%);
+	}
+
+	a {
+		color: $teal;
+	}
+
+	h2 {
+		font-size: 1.2em;
+	}
+
+	h3 {
+		text-transform: uppercase;
+		margin-top: 1em;
+		margin-bottom: .5em;
+	}
+
+	p {
+		@include serif;
+	}
+	
+
+}
+
+
+
+
+/* Menu */
+ul#nav {
+	& > li {
+		& > ul {
+			li.subject-menu-toggler, li.demographic-menu-toggler {
+				a {
+					// url(http://www.epi.org/files/2012/swa-sprite.png) no-repeat 10px -1582px;
+
+					// &:after {
+					// 	content: " +";
+					// 	color: lighten($teal, 50%);
+					// 	color: #FD2;
+					// 	display: inline;
+					// }
+				}
+			}
+
+			li.sub-subject, li.sub-demographic {
+				display: none;
+
+				a {
+					padding-left: 1.6em;
+					color: lighten($teal, 50%);
+					color: #FD2;
+				}
+			}
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+$themeURL: "http://www.epi.org/wp-content/themes/epi/";
+
+
+
+/****************************************************
+	Tables
+****************************************************/
+
+.figure {
+	table { 
+		border-collapse:collapse; border-spacing:0;
+		width: 100%;
+		text-align: left;
+		font-family: "myriad-pro", Trebuchet, sans-serif;
+		font-size: .9em;
+		margin: 1em auto;
+		hyphens: none;
+		hyphens: auto;
+
+		thead {
+			th[scope=col]:first-child {
+				text-align: left;
+			}
+		}
+
+		td, th {
+			padding: .36em .7em;
+		}
+
+		td {
+			text-align: center;
+		}
+
+		tbody {
+			border-bottom: 2px solid black;
+		}
+
+		th {
+			font-weight: bold;
+			line-height: 1.1;
+
+			strong {
+				font-weight: 800;
+			}
+
+			&[scope=col] {
+				vertical-align: bottom;
+				border-bottom: 3px solid black;
+				text-align: center;
+				background: #fff;
+			}
+
+			&[scope="row"], &[scope="rowgroup"] {
+				text-align: left;
+			}
+
+			&[scope=row] {
+				vertical-align: middle;
+				font-style: italic;
+				font-weight: 600;
+				text-align: left;
+			}
+
+			&[scope=rowgroup] {
+				vertical-align: middle;
+				vertical-align: top;
+				font-weight: bold;
+				text-align: left;
+			}
+
+			&[scope="colgroup"], &[scope="col"][colspan] {
+				border-bottom: 0;
+				background: #fff;
+				text-align: center;
+				text-transform:uppercase;
+				font-weight:600;
+				border-bottom: 2px solid #ddd;
+			}
+
+			&[scope="colgroup"], &[scope="col"][colspan] {
+				border-bottom: 0;
+				background: #fff;
+				text-align: center;
+				text-transform:uppercase;
+				font-weight:600;
+				border-bottom: 2px solid #ddd;
+			}
+		}
+
+		tr {
+
+			&.table-pseudo-header {
+				color: #069;
+
+				td, th {
+					padding-top: 1.5em;
+					font-style: normal;
+				}
+			}
+
+			&:nth-child(even) {
+				background: #eee;
+				background: #ffeeef;
+				background: #FFEBF3;
+				background: #EDF2F7;
+				background: #EBF2FA;
+			}
+
+			&.table-total, 
+			&:last-child.table-total, 
+			&:last-child .table-total {
+				border-top: 1px solid #666;
+				background: #fff;
+				border-bottom: 0;
+			}
+
+			/* Indented/hierarchical rows */
+
+			&.row-level2 th {
+				padding-left: 1.5em;
+			//	font-weight: normal;
+				font-style: italic;
+				font-style: normal;
+			}
+
+			&.row-level3 th {
+				padding-left: 2.5em;
+				font-weight: normal;
+			}
+
+			&.row-level4 th {
+				padding-left: 3.5em;
+				font-weight: 300;
+				font-style: italic;
+			}
+		}
+
+		/* Table divisions */
+
+		td.table-division-right, th.table-division-right {
+			border-right: 1px solid #666;
+		}
+
+		td.table-division-left, th.table-division-left, .table-division-left {
+			border-left: .5em solid #fff;
+		}
+
+		td.table-breaker-column, th.table-breaker-column {
+			width: 2em;
+			background: #fff;
+		}
+
+		/* Type styles */
+
+		& > h2, & > h3, & > h4, & > h5, & > h6 {
+			text-align: center;
+			padding-top: 1em;
+		} 
+
+		h4 {
+			font-size: 1.15em;
+		}
+
+		em {
+			font-weight: normal;
+		}
+
+		sup {
+			font-weight: normal;
+		}
+
+		/* Deprecated */
+
+		.fig-inline-source {
+			border-top: 1px solid #444;
+		}
+
+		em strong, strong em {
+			/*color:  #047; */
+			display: block;
+			font-size: 1.1em;
+			color: #48c;
+			color: #6484a4;
+			color: #be8888;
+			padding-top: 1em;
+		}
+
+		td.bg-light {
+			background: #eee;
+		}
+
+		tr.fig-table-header th, h3 {
+			font-size: 1.2em;
+			text-align: center;
+			font-weight: bold;
+			padding-bottom: 1em;
+		}
+	}
+}
+
+
+
+/****************************************************
+	Figures
+****************************************************/
+
+.figure-display-mini {
+	display: none;
+}
+
+.colorbox-figure-mini {
+	float: left;
+	margin-right: 2em; /* to deal with overlapping list bullets */
+}
+
+.figure textarea {
+	width: 100%;
+}
+
+.figure {
+	font-family: myriad-pro, 'Myriad Pro', Helvetica,Arial,sans-serif;
+	width: 100%;
+	border: 2px solid #888;
+	border-top: 0;
+	border-bottom: 0;
+	padding: 0;
+	margin: .75em 0;
+	overflow: hidden;
+	page-break-inside: avoid;
+	clear: both;
+	font-size: .84em;
+
+	#chartcontainer {
+		/* To counterbalance the .84em for dynamic charts */
+		font-size: 1.19em;
+	}
+
+	.figInner {
+		padding: 1em 2em .2em;
+	}
+
+	.small p, p.small {
+		margin-top: .5em;
+		margin-bottom: .5em;
+	}
+
+
+	h1, h2, h3, h4, h5, h6 {
+		font-family: myriad-pro, 'Myriad Pro', Helvetica,Arial,sans-serif;
+	}
+
+
+	img {
+		display: block;
+		margin: 18px 8px 8px;
+		margin-left: auto;
+		margin-right: auto;
+		max-width: 100%;
+	}
+
+	&.halfright,
+	&.halfright.figwrapper-table {
+		display: block;
+		float: right;
+		width: 50%;
+		margin-left: .75em;
+	}
+
+	&.halfright {
+		border: 0;
+
+		figInner {
+			padding-top: .5em;
+			padding-left: .5em;
+			padding-right: .5em;
+		}
+
+		img {
+			margin: 8px;
+		}
+	}
+
+	& > p, 
+	& > h1, 
+	& > h2, 
+	& > h3, 
+	& > h4,
+	& > h5,
+	& > h6 {
+		margin: 0 30px;
+	}
+
+	h3 + h4 {
+		margin-top: 0;
+		padding-top: 0;
+		font-weight:normal;
+	}
+
+	h4 {
+		font-size: 1.2em;
+	}
+
+	.figInner > h4 {
+		text-align: center;
+	}
+
+	tfoot.fig-after {
+		height: .4em;
+		margin-top: 1em;
+		padding: 0;
+	}
+}
+
+
+p.fig-source {
+	margin-top: .5em;
+	margin-bottom: .5em;
+}
+
+@-moz-document url-prefix() {
+    .figure img {
+    width:100%;
+	}
+}
+
+.bg-gradient {
+	background: #888 url('#{$themeURL}/img/fig-label-bg-narrower-700w-60t.png') center repeat-y;
+}
+
+.fig-after {
+	height: .4em;
+	margin-top: 1em;
+	padding: 0;	
+}
+
+.figurelabel {
+	display: block;
+	letter-spacing: .2em;
+	color: #fff;
+	text-align: center;
+	font-weight: bold;
+	text-transform: uppercase;
+	font-size: .75em;
+	margin: 0;
+	padding: .24em;
+}
+
+.figurelabel-continued {
+	display: none;
+	prince-caption-page: following;
+}
+
+hr {
+	text-align: center;
+	margin: 1em auto;
+	height: 1px;
+	background: #bbb;
+	border: 0;
+}
+
+
+/****************************************************
+	Tables that are too wide to fit normally
+****************************************************/
+
+
+table.table-wide {
+	// max-width: 600px !important;
+	font-size: .8em;
+
+	td, th {
+		// To trump .36em .7em above
+		padding: .36em .4em;
+	}
+}
+
+table.shrink-table {
+	table {
+		max-width: 600px !important;
+		font-size: .7em;
+	}
+	.figInner {
+		padding-left: 0;
+		padding-right: 0;
+	}
+}
+
+
+.print table.shrink-table table {
+	font-family: 'myriad-pro-condensed';
+}
+
+
+
+
+
+
+/****************************************************
+	Rules for embedded (shared) charts
+****************************************************/
+
+.embeddedchart {
+	.entry-content {
+		border-top: 0;
+		margin-top: 0;
+		padding-top: 0;
+	}
+
+	.figure, .figInner {
+		margin: 0;
+		border: 0;
+		padding: 0;
+
+		tfoot.fig-after, caption.figurelabel {
+			display: none;
+		}
+	}
+} 
+
+
+
+/**
+ * Floaty header
+ */
+
+.floatyHead thead {
+	background: #fff;
+}
+
+.floatyHead .fig-inline-source {
+	display: none;
+}
+
+th.headerSortDown, th.headerSortDown.header { 
+    /*background-image: url(img/tablesorter-desc.gif); */
+    /*background-image: url(img/tablesorter-desc-liteblue-ds.gif);  */
+    /*color: green;*/
+    /*background-color: #eeeebb; */
+    color: #444422; 
+    color: #5497ea; 
+    color: #397cba; 
+} 
+
+th.headerSortUp, th.headerSortUp.header { 
+    /*background-image: url(img/tablesorter-asc.gif); */
+    /*background-image: url(img/tablesorter-asc-liteblue-ds.gif);  */
+    /*color: red;*/
+    /*background-color: #eeeebb; */
+    color: #444422; 
+    color: #5497ea; 
+    color: #397cba; 
+} 
+
+
+th.header { 
+    /*background-image: url(img/tablesorter-bg.gif);     */
+    /*background-image: url(img/tablesorter-bg-liteblue-ds.gif);     */
+    cursor: pointer; 
+    /*font-weight: bold; */
+    background-repeat: no-repeat; 
+    /*background-position: 90% 100%; */
+    background-position: 100% 90%; 
+    /*padding-right: 10px;*/
+    /*text-align: left !important;*/
+
+} 
+
+th.header:after {
+	content: url(img/tablesorter-bg-liteblue-ds.gif);
+	margin: 0 0 0 .36em;
+	/*content: 'bla';*/
+}
+
+th.headerSortUp:after {
+	content: url(img/tablesorter-desc-liteblue.gif);
+	margin: 0 0 0 .36em;
+	/*padding-bottom: 6px;*/
+}
+
+th.headerSortDown:before {
+	content: url(img/tablesorter-asc-liteblue.gif);
+	margin: 0 0 0 .36em;
+	/*padding-bottom: 6px;*/
+}
+
+
+
+
+/****************************************************
+Sticky table header javascript rules
+****************************************************/
+
+.hide {
+  display:none;
+}
+div.stickyHeader {
+  top:0;
+  position:fixed;
+  _position:absolute;
+}
+
+
+
+
+
+
+
