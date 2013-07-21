@@ -15,7 +15,7 @@
 	<!-- Typekit fonts -->
 	<script type="text/javascript" src="//use.typekit.net/nyu8lvw.js"></script>
 	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-
+	<link rel="icon" type="image/png" href="http://www.epi.org/files/2012/favicon.png" />
 	<link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri() ?>/css/style.css">
 	<link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri() ?>/css/boxy.css">
 	<link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri() ?>/font-symbolset/ss-standard.css">

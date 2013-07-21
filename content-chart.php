@@ -35,6 +35,8 @@
 
 	// Set up array to hold wrapper tags
 	$openingTags[] = '<figure class="'.$cssClass.'">';
+	// $closingTags[] = '<div><img src="http://www.epi.org/files/2012/logo-epi-wide-left-trans-v2.png.140"></div>';
+	$closingTags[] = '<div style="text-align: right;"><img src="http://www.epi.org/files/2012/logo-epi-wide-right-trans-v2.png.140"></div>';
 	$closingTags[] = '</figure>';
 
 

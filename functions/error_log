@@ -1,0 +1,10 @@
+[24-Sep-2011 22:00:40] PHP Fatal error:  Class 'ShortCodeScriptLoader' not found in /home/epi/epi.org/wp-content/themes/epi-boilerplate/functions/shortcode.colorbox.on.php on line 10
+[17-Oct-2011 11:15:18] PHP Fatal error:  Class 'ShortCodeScriptLoader' not found in /home/epi/epi.org/wp-content/themes/epi-boilerplate/functions/shortcode.colorbox.on.php on line 10
+[21-Oct-2011 23:42:26] PHP Fatal error:  Call to undefined function  add_action() in /home/epi/epi.org/wp-content/themes/epi-boilerplate/functions/types-and-taxonomies.on.php on line 16
+[22-Oct-2011 07:52:23] PHP Fatal error:  Call to undefined function  add_action() in /home/epi/epi.org/wp-content/themes/epi-boilerplate/functions/types-and-taxonomies.on.php on line 16
+[17-Sep-2012 16:44:07 UTC] PHP Fatal error:  Class 'HTTPRequest' not found in /home/epi/stateofworkingamerica.org/wp-content/themes/swa-clone/functions/ajax.docraptor.php on line 62
+[17-Sep-2012 16:44:43 UTC] PHP Fatal error:  Class 'HTTPRequest' not found in /home/epi/stateofworkingamerica.org/wp-content/themes/swa-clone/functions/ajax.docraptor.php on line 62
+[19-Sep-2012 22:43:47 UTC] PHP Fatal error:  Class 'HTTPRequest' not found in /home/epi/stateofworkingamerica.org/wp-content/themes/swa-clone/functions/ajax.docraptor.php on line 62
+[19-Sep-2012 22:48:09 UTC] PHP Fatal error:  Class 'HTTPRequest' not found in /home/epi/stateofworkingamerica.org/wp-content/themes/swa-clone/functions/ajax.docraptor.php on line 62
+[20-Sep-2012 02:09:22 UTC] PHP Warning:  preg_match() [<a href='function.preg-match'>function.preg-match</a>]: Unknown modifier '(' in /home/epi/stateofworkingamerica.org/wp-content/themes/swa-clone/functions/ajax.docraptor.php on line 106
+[20-Sep-2012 02:13:02 UTC] PHP Warning:  preg_match() [<a href='function.preg-match'>function.preg-match</a>]: Unknown modifier 'r' in /home/epi/stateofworkingamerica.org/wp-content/themes/swa-clone/functions/ajax.docraptor.php on line 106

@@ -1,0 +1,2 @@
+[20-Feb-2013 12:15:29 UTC] PHP Fatal error:  Call to undefined function get_header() in /home/epi/stateofworkingamerica.org/wp-content/themes/swa-clone/index.php on line 1
+[20-Feb-2013 12:15:32 UTC] PHP Fatal error:  Call to undefined function get_header() in /home/epi/stateofworkingamerica.org/wp-content/themes/swa-clone/index.php on line 1

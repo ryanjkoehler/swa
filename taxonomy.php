@@ -1,20 +1,31 @@
 <?php
 /**
- * The template for displaying Taxonomy Archive pages.
+ * The template for displaying Category Archive pages.
  *
  * @package WordPress
- * @subpackage SWA
- * @since 2012-09-24 09:40:31
+ * @subpackage Twenty_Ten
+ * @since Twenty Ten 1.0
  */
 ?>
+
 <?php get_header(); ?>
 
-<?php $term = get_queried_object(); ?>
+<?php 
 
-<!-- <h2 class="sp-header"><?php echo $term->taxonomy; ?></h2>  -->
+if( is_tax() ) {
+    // global $wp_query;
+    $term = get_queried_object();
+
+    // $taxonomy = $term->taxonomy; // This is the Taxonomy Title
+	// $taxonomy_term = $term->name; 
+
+
+} ?>
+
+<!-- <h2 class="sp-header"><?php echo $taxonomy; /*** This is the title of the taxonomy -- such as "Subjects" or "Demographics" ***/ ?></h2>  -->
 	<div id="intro">
 		<h1>
-			<?php echo $term->name; ?>
+			<?php echo $term->name; /*** This is the term you're looking at -- such as "Health" or "Race & Ethnicity" ***/ ?>
 		</h1>
 	</div>
 
@@ -130,21 +141,9 @@ function epi_listChartsByTag() {
 		'include' => array(),
 	));
 
-	$indicators = get_term('gdp', 'indicator');
-	$indicators = get_terms('indicator');
-
-	// print_r($indicators);
-
-	// $sections = array_merge($indicators, $sections);
-
 	// if (!$sections || has_term('poverty', 'subject'))
 	if (!$sections)
 		$sections = array(get_queried_object());
-
-	if (is_tax('demographic')) {
-
-	}
-		// $sections = array_merge($indicators, $sections);
 
 
 	?>
@@ -154,11 +153,20 @@ function epi_listChartsByTag() {
 		<!-- <a href="#" class="button">View as grid</a> -->
 		<a href="#" class="switch_thumb">Switch Thumb</a>
 
+
+		<?php  // if (is_user_logged_in()) { ?>
+
+
 		<div class="chaptertoc">
 			<?php echo epi_swa_chapter_toc(); ?>
-		</div>		
+		</div>
+		
+		<?php  // } ?>
+
 	</div>
 	<?php
+
+
 
 
 	foreach($sections as $section) {
@@ -182,6 +190,18 @@ function epi_listChartsByTag() {
 		echo '</section>';
 	}
 	
+	
+
+
+
+
+
+
+
+
+
+
+
 	?>
 		<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js-new/jquery.clearfield.js"></script>
 		<script type="text/javascript">
@@ -351,6 +371,7 @@ function epi_listChartsByTag() {
 					$this.html( html );
 				});
 
+
 			}
 
 		});
@@ -370,6 +391,8 @@ function epi_listChartsByTag() {
 
 
 </div>
+
+
 
 <?php get_sidebar() ?>
 <?php get_footer(); ?>

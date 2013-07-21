@@ -28,7 +28,7 @@
 		$output['chapter_links'] .= '<a href="'.$readerLink.'"'.$active.'>'. $term->name .'</a>';
 	}
 
-	$output['chapter_links'] .= ' | <a class="ital" href="" id="toggle-viewermore" data-toggleTarget="#reader_more">more</a>';
+	// $output['chapter_links'] .= ' | <a class="ital" href="" id="toggle-viewermore" data-toggleTarget="#reader_more">more</a>';
 
 
  ?>
@@ -41,7 +41,7 @@
 <div id="reader_nav">
 	<?php echo $output['chapter_links']; ?>
 </div>
-<div id="reader_more" style="display: none;">
+<div id="reader_more">
 	<!-- <a href="<?php echo home_url('/12th-edition-table-of-contents/'); ?>">Table of contents</a> | <a href="#">Appendix</a> | <a href="#">Full documentation and methodology</a> -->
 	<a href="<?php echo home_url('/files/book/Table-of-Contents.pdf'); ?>">Table of contents</a> | <a href="<?php echo home_url('/files/book/Appendices.pdf'); ?>">Appendices</a> | <a href="<?php echo home_url('/files/book/Documentation-and-Methodology.pdf'); ?>">Documentation and methodology</a>
 </div>
